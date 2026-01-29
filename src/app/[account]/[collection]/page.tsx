@@ -23,6 +23,7 @@ import {
   ExternalLink,
   Plus,
 } from "lucide-react";
+import { McpServerUri } from "@/components/mcp-server-uri";
 
 interface PageProps {
   params: Promise<{ account: string; collection: string }>;
@@ -163,6 +164,12 @@ export default async function CollectionPage({ params }: PageProps) {
             collection={collection}
             account={collection.account}
             canEdit={canEdit}
+          />
+
+          {/* MCP Server Connection */}
+          <McpServerUri
+            accountSlug={accountSlug}
+            collectionSlug={collectionSlug}
           />
 
           {/* Action buttons for owners */}

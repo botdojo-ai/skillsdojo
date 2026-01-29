@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "sdojo": "./bin/sd.js",
+    "skillsd": "./bin/sd.js",
     "skillsdojo": "./bin/sd.js"
   },
   "scripts": {

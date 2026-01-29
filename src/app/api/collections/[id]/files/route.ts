@@ -4,10 +4,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { getDataSource } from "@/lib/db/data-source";
 import { SkillCollection } from "@/entities/SkillCollection";
 import { Account } from "@/entities/Account";
+import { Skill } from "@/entities/Skill";
 import { withOptionalAuth } from "@/lib/auth/middleware";
 import { TokenPayload } from "@/lib/auth/jwt";
 import { RequestContext } from "@/lib/db/context";
 import { DatabaseGitBackend } from "@/lib/git/db-backend";
+import { IsNull } from "typeorm";
+import { createHash } from "crypto";
 
 /**
  * GET /api/collections/[id]/files
@@ -57,7 +60,28 @@ export const GET = withOptionalAuth(async (
     const commitSha = await git.getRef(`refs/heads/${branch}`);
 
     if (!commitSha) {
-      // No commits yet - return empty files
+      // No git commits - generate virtual files from skills
+      const skillRepo = ds.getRepository(Skill);
+      const skills = await skillRepo.find({
+        where: { collectionId: collection.id, archivedAt: IsNull() },
+        order: { path: "ASC" },
+      });
+
+      const virtualFiles = skills.map(skill => {
+        const content = skill.content || generateDefaultSkillMd(skill);
+        const sha = createHash("sha1").update(content).digest("hex");
+        return {
+          path: `skills/${skill.path}/SKILL.md`,
+          sha,
+          content,
+        };
+      });
+
+      // Generate a virtual commit SHA based on content
+      const contentHash = createHash("sha1")
+        .update(virtualFiles.map(f => f.sha).join(""))
+        .digest("hex");
+
       return NextResponse.json({
         collection: {
           id: collection.id,
@@ -70,8 +94,8 @@ export const GET = withOptionalAuth(async (
           } : null,
         },
         branch,
-        commitSha: "",
-        files: [],
+        commitSha: contentHash,
+        files: virtualFiles,
       });
     }
 
@@ -110,3 +134,18 @@ export const GET = withOptionalAuth(async (
     return NextResponse.json({ error: message }, { status: 500 });
   }
 });
+
+/**
+ * Generate default SKILL.md content from skill metadata
+ */
+function generateDefaultSkillMd(skill: Skill): string {
+  return `---
+name: ${skill.name}
+description: ${skill.description || "A skill for AI agents"}
+---
+
+# ${skill.name}
+
+${skill.description || "A skill for AI agents."}
+`;
+}
