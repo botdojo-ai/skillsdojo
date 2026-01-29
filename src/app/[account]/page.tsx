@@ -1,3 +1,6 @@
+// Force dynamic rendering - this page needs database access
+export const dynamic = 'force-dynamic';
+
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";

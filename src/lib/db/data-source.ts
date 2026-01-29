@@ -63,6 +63,11 @@ const config: DataSourceOptions = {
 let dataSource: DataSource | null = null;
 
 export async function getDataSource(): Promise<DataSource> {
+  // Fail fast if DATABASE_URL is not configured
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL environment variable is not set");
+  }
+
   if (dataSource && dataSource.isInitialized) {
     return dataSource;
   }
