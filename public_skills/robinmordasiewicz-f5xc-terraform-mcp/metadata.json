@@ -1,0 +1,26 @@
+{
+  "id": "robinmordasiewicz-f5xc-terraform-mcp",
+  "name": "@robinmordasiewicz/f5xc-terraform-mcp",
+  "description": "MCP server for F5 Distributed Cloud Terraform provider - documentation, 270+ OpenAPI specs, subscription info, and addon activation workflows for AI assistants",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/robinmordasiewicz/terraform-provider-f5xc.git",
+  "npmUrl": "https://www.npmjs.com/package/@robinmordasiewicz/f5xc-terraform-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.053Z",
+  "version": "3.24.0",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "f5",
+    "f5xc",
+    "f5-distributed-cloud",
+    "terraform",
+    "terraform-provider",
+    "ai",
+    "claude",
+    "openapi",
+    "infrastructure-as-code",
+    "iac",
+    "api-documentation"
+  ]
+}

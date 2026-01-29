@@ -1,0 +1,16 @@
+{
+  "id": "hisma-server-puppeteer",
+  "name": "@hisma/server-puppeteer",
+  "description": "Fork and update (v0.6.5) of the original @modelcontextprotocol/server-puppeteer MCP server for browser automation using Puppeteer.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/Hisma/servers-archived.git",
+  "npmUrl": "https://www.npmjs.com/package/@hisma/server-puppeteer",
+  "discoveredAt": "2026-01-28T13:21:43.040Z",
+  "version": "0.6.5",
+  "keywords": [
+    "mcp",
+    "puppeteer",
+    "hisma"
+  ]
+}

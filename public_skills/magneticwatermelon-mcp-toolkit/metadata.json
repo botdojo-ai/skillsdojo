@@ -1,0 +1,11 @@
+{
+  "id": "magneticwatermelon-mcp-toolkit",
+  "name": "@magneticwatermelon/mcp-toolkit",
+  "description": "Build and ship **[Model Context Protocol](https://github.com/modelcontextprotocol)** (MCP) servers with zero-config ⚡️.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@magneticwatermelon/mcp-toolkit",
+  "discoveredAt": "2026-01-28T13:21:43.043Z",
+  "version": "2.0.1",
+  "keywords": []
+}

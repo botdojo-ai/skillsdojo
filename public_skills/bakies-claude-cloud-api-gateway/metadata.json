@@ -1,0 +1,11 @@
+{
+  "id": "bakies-claude-cloud-api-gateway",
+  "name": "bakies/claude-cloud-api-gateway",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/bakies/claude-cloud-api-gateway",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.065Z",
+  "pulls": 889270
+}

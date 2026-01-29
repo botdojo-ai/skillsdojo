@@ -1,0 +1,21 @@
+{
+  "id": "mcp-nest",
+  "name": "MCP-Nest",
+  "description": "A NestJS module to effortlessly create Model Context Protocol (MCP) servers for exposing AI tools, resources, and prompts.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/rekog-labs/MCP-Nest",
+  "stars": 565,
+  "owner": "rekog-labs",
+  "repo": "MCP-Nest",
+  "discoveredAt": "2026-01-28T13:21:43.022Z",
+  "keywords": [
+    "llm",
+    "llms",
+    "mcp",
+    "mcp-nest",
+    "model-context-protocol",
+    "modelcontextprotocol",
+    "nestjs"
+  ]
+}

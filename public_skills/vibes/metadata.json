@@ -1,0 +1,28 @@
+{
+  "id": "vibes",
+  "name": "vibes",
+  "description": "🎯 Vibes transforms Claude Desktop into a conversational development environment through distributed MCP servers. Instead of learning command-line tools, you describe what you want to build and Claude implements it while teaching you.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/jonhill90/vibes",
+  "stars": 8,
+  "owner": "jonhill90",
+  "repo": "vibes",
+  "discoveredAt": "2026-01-28T13:21:43.027Z",
+  "keywords": [
+    "ai-learning",
+    "ai-tutor",
+    "beginner-friendly",
+    "claude-desktop",
+    "context-engineering",
+    "conversational-ai",
+    "development-environment",
+    "docker",
+    "education",
+    "mcp",
+    "no-code",
+    "product-requirements-prompt",
+    "prp",
+    "vibes"
+  ]
+}

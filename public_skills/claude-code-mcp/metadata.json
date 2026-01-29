@@ -1,0 +1,17 @@
+{
+  "id": "claude-code-mcp",
+  "name": "claude-code-mcp",
+  "description": "Claude Code as one-shot MCP server to have an agent in your agent.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/steipete/claude-code-mcp",
+  "stars": 1038,
+  "owner": "steipete",
+  "repo": "claude-code-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.021Z",
+  "keywords": [
+    "agent",
+    "claude",
+    "mcp"
+  ]
+}

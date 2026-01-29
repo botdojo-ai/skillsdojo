@@ -1,0 +1,18 @@
+{
+  "id": "orchestrator-claude-mcp-server",
+  "name": "@orchestrator-claude/mcp-server",
+  "description": "MCP Thin Client for Orchestrator - delegates to REST API",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/orchestratorAII/orchestrator_claude.git",
+  "npmUrl": "https://www.npmjs.com/package/@orchestrator-claude/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.046Z",
+  "version": "1.14.0",
+  "keywords": [
+    "mcp",
+    "orchestrator",
+    "cli",
+    "anthropic",
+    "model-context-protocol"
+  ]
+}

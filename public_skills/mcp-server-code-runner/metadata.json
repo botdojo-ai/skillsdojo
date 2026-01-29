@@ -1,0 +1,16 @@
+{
+  "id": "mcp-server-code-runner",
+  "name": "mcp-server-code-runner",
+  "description": "Code Runner MCP Server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/formulahendry/mcp-server-code-runner.git",
+  "npmUrl": "https://www.npmjs.com/package/mcp-server-code-runner",
+  "discoveredAt": "2026-01-28T13:21:43.032Z",
+  "version": "0.1.8",
+  "keywords": [
+    "mcp",
+    "code-runner",
+    "server"
+  ]
+}

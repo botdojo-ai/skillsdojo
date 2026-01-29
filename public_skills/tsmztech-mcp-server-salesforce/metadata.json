@@ -1,0 +1,16 @@
+{
+  "id": "tsmztech-mcp-server-salesforce",
+  "name": "@tsmztech/mcp-server-salesforce",
+  "description": "A Salesforce connector MCP Server.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@tsmztech/mcp-server-salesforce",
+  "discoveredAt": "2026-01-28T13:21:43.035Z",
+  "version": "0.0.6",
+  "keywords": [
+    "mcp",
+    "salesforce",
+    "claude",
+    "ai"
+  ]
+}

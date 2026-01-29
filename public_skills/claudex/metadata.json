@@ -1,0 +1,25 @@
+{
+  "id": "claudex",
+  "name": "claudex",
+  "description": "Your own Claude Code UI, local/e2b/modal sandbox, in-browser VS Code, terminal, multi-provider support (Max, Z.AI, OpenRouter), custom skills, and MCP servers.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/Mng-dev-ai/claudex",
+  "stars": 184,
+  "owner": "Mng-dev-ai",
+  "repo": "claudex",
+  "discoveredAt": "2026-01-28T13:21:43.025Z",
+  "keywords": [
+    "agent",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "code-execution",
+    "fastapi",
+    "llm",
+    "python",
+    "react",
+    "sandbox",
+    "typescript"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "modelcontextprotocol-server-memory",
+  "name": "@modelcontextprotocol/server-memory",
+  "description": "MCP server for enabling memory for Claude through a knowledge graph",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/servers.git",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-memory",
+  "discoveredAt": "2026-01-28T13:21:43.045Z",
+  "version": "2026.1.26",
+  "keywords": []
+}

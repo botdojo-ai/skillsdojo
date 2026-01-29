@@ -1,0 +1,11 @@
+{
+  "id": "weishaw-claude-relay-service",
+  "name": "weishaw/claude-relay-service",
+  "description": "Claude Code API Relay Service - 多账户管理的Claude API中转服务",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/weishaw/claude-relay-service",
+  "stars": 5,
+  "discoveredAt": "2026-01-28T13:21:43.029Z",
+  "pulls": 90946
+}

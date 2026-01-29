@@ -1,0 +1,11 @@
+{
+  "id": "swerebench-sweb-eval-x86_64-modelcontextprotocol_1776_python-sdk-222",
+  "name": "swerebench/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-222",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/swerebench/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-222",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.060Z",
+  "pulls": 489
+}

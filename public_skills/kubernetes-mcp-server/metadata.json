@@ -1,0 +1,23 @@
+{
+  "id": "kubernetes-mcp-server",
+  "name": "kubernetes-mcp-server",
+  "description": "Model Context Protocol (MCP) server for Kubernetes and OpenShift",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/containers/kubernetes-mcp-server",
+  "stars": 1054,
+  "owner": "containers",
+  "repo": "kubernetes-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.021Z",
+  "keywords": [
+    "containers",
+    "context",
+    "kubernetes",
+    "kubernetes-mcp",
+    "mcp",
+    "model",
+    "modelcontextprotocol",
+    "openshift",
+    "protocol"
+  ]
+}

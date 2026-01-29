@@ -1,0 +1,21 @@
+{
+  "id": "ros-mcp-server",
+  "name": "ros-mcp-server",
+  "description": "Connect AI models like Claude & GPT with robots using MCP and ROS.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/robotmcp/ros-mcp-server",
+  "stars": 960,
+  "owner": "robotmcp",
+  "repo": "ros-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.021Z",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
+    "ros",
+    "ros-mcp-server",
+    "ros2",
+    "ros2-mcp-server"
+  ]
+}

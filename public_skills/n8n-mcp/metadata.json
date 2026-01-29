@@ -1,0 +1,18 @@
+{
+  "id": "n8n-mcp",
+  "name": "n8n-mcp",
+  "description": "A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you ",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/czlonkowski/n8n-mcp",
+  "stars": 12885,
+  "owner": "czlonkowski",
+  "repo": "n8n-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.012Z",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "n8n",
+    "workflows"
+  ]
+}

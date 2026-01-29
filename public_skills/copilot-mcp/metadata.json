@@ -1,0 +1,20 @@
+{
+  "id": "copilot-mcp",
+  "name": "copilot-mcp",
+  "description": "A powerful VSCode extension that lets you find and install MCP servers to use with GitHub Copilot, Claude Code, and Codex CLI.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/VikashLoomba/copilot-mcp",
+  "stars": 462,
+  "owner": "VikashLoomba",
+  "repo": "copilot-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.023Z",
+  "keywords": [
+    "copilot",
+    "copilot-chat",
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
+    "vscode-extension"
+  ]
+}

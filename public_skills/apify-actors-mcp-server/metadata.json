@@ -1,0 +1,18 @@
+{
+  "id": "apify-actors-mcp-server",
+  "name": "@apify/actors-mcp-server",
+  "description": "Apify MCP Server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/apify/apify-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@apify/actors-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.033Z",
+  "version": "0.7.4",
+  "keywords": [
+    "apify",
+    "mcp",
+    "server",
+    "actors",
+    "model context protocol"
+  ]
+}

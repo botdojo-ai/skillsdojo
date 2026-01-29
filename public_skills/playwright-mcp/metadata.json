@@ -1,0 +1,12 @@
+{
+  "id": "playwright-mcp",
+  "name": "@playwright/mcp",
+  "description": "Playwright Tools for MCP",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/microsoft/playwright-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@playwright/mcp",
+  "discoveredAt": "2026-01-28T13:21:43.048Z",
+  "version": "0.0.61",
+  "keywords": []
+}

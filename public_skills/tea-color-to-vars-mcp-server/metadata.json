@@ -1,0 +1,16 @@
+{
+  "id": "tea-color-to-vars-mcp-server",
+  "name": "tea-color-to-vars-mcp-server",
+  "description": "A basic MCP server example using @modelcontextprotocol/sdk",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/tea-color-to-vars-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.044Z",
+  "version": "1.0.0",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "llm"
+  ]
+}

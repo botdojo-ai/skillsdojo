@@ -1,0 +1,12 @@
+{
+  "id": "puppeteer-mcp-server",
+  "name": "puppeteer-mcp-server",
+  "description": "Experimental MCP server for browser automation using Puppeteer (inspired by @modelcontextprotocol/server-puppeteer)",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/merajmehrabi/puppeteer-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/puppeteer-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.038Z",
+  "version": "0.7.2",
+  "keywords": []
+}

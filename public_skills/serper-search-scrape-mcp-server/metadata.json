@@ -1,0 +1,20 @@
+{
+  "id": "serper-search-scrape-mcp-server",
+  "name": "serper-search-scrape-mcp-server",
+  "description": "Serper MCP Server supporting search and webpage scraping",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/marcopesani/mcp-server-serper.git",
+  "npmUrl": "https://www.npmjs.com/package/serper-search-scrape-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.035Z",
+  "version": "0.1.2",
+  "keywords": [
+    "mcp",
+    "serper",
+    "search",
+    "scrape",
+    "claude",
+    "claude-desktop",
+    "modelcontextprotocol"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "mcp-server-qdrant",
+  "name": "mcp-server-qdrant",
+  "description": "An official Qdrant Model Context Protocol (MCP) server implementation",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/qdrant/mcp-server-qdrant",
+  "stars": 1185,
+  "owner": "qdrant",
+  "repo": "mcp-server-qdrant",
+  "discoveredAt": "2026-01-28T13:21:43.021Z",
+  "keywords": [
+    "claude",
+    "cursor",
+    "llm",
+    "mcp",
+    "mcp-server",
+    "semantic-search",
+    "windsurf"
+  ]
+}

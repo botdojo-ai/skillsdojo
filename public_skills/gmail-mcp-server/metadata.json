@@ -1,0 +1,13 @@
+{
+  "id": "gmail-mcp-server",
+  "name": "Gmail-MCP-Server",
+  "description": "A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop with auto authentication support. This server enables AI assistants to manage Gmail through natural language interactions.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/GongRzhe/Gmail-MCP-Server",
+  "stars": 957,
+  "owner": "GongRzhe",
+  "repo": "Gmail-MCP-Server",
+  "discoveredAt": "2026-01-28T13:21:43.021Z",
+  "keywords": []
+}

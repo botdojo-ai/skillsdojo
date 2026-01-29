@@ -1,0 +1,11 @@
+{
+  "id": "bakies-claude-cloud-web-frontend",
+  "name": "bakies/claude-cloud-web-frontend",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/bakies/claude-cloud-web-frontend",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.065Z",
+  "pulls": 1110528
+}

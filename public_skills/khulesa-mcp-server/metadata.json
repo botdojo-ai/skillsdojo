@@ -1,0 +1,11 @@
+{
+  "id": "khulesa-mcp-server",
+  "name": "khulesa/mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/khulesa/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.056Z",
+  "pulls": 2714
+}

@@ -1,0 +1,28 @@
+{
+  "id": "maxkb",
+  "name": "MaxKB",
+  "description": "🔥 MaxKB is an open-source platform for building enterprise-grade agents.  强大易用的开源企业级智能体平台。",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/1Panel-dev/MaxKB",
+  "stars": 19965,
+  "owner": "1Panel-dev",
+  "repo": "MaxKB",
+  "discoveredAt": "2026-01-28T13:21:43.010Z",
+  "keywords": [
+    "agent",
+    "agentic-ai",
+    "chatbot",
+    "deepseek-r1",
+    "knowledgebase",
+    "langchain",
+    "llama3",
+    "llm",
+    "maxkb",
+    "mcp-server",
+    "ollama",
+    "pgvector",
+    "qwen3",
+    "rag"
+  ]
+}

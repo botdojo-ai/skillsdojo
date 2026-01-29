@@ -1,0 +1,22 @@
+{
+  "id": "antigravity-awesome-skills",
+  "name": "antigravity-awesome-skills",
+  "description": "The Ultimate Collection of 200+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+  "stars": 4723,
+  "owner": "sickn33",
+  "repo": "antigravity-awesome-skills",
+  "discoveredAt": "2026-01-28T13:21:43.016Z",
+  "keywords": [
+    "agentic-skills",
+    "ai-agents",
+    "antigravity",
+    "autonomous-coding",
+    "claude-code",
+    "mcp",
+    "react-patterns",
+    "security-auditing"
+  ]
+}

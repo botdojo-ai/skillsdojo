@@ -1,0 +1,24 @@
+{
+  "id": "williamp29-project-mcp-server",
+  "name": "@williamp29/project-mcp-server",
+  "description": "A ModelContextProtocol server to let agents discover your project, such as APIs (using OpenAPI) or other resources.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/WilliamPinto-Olmos/project-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@williamp29/project-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.044Z",
+  "version": "3.0.2",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "agent",
+    "openapi",
+    "database",
+    "api",
+    "sql",
+    "cursor",
+    "claudecode",
+    "copilot"
+  ]
+}

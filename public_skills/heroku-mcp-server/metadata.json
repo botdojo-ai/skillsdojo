@@ -1,0 +1,15 @@
+{
+  "id": "heroku-mcp-server",
+  "name": "@heroku/mcp-server",
+  "description": "Heroku Platform MCP Server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/heroku/heroku-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@heroku/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.032Z",
+  "version": "1.1.0",
+  "keywords": [
+    "heroku",
+    "mcp"
+  ]
+}

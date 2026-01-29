@@ -1,0 +1,11 @@
+{
+  "id": "claudettea-7465",
+  "name": "claudettea/7465",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/claudettea/7465",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.066Z",
+  "pulls": 75840
+}

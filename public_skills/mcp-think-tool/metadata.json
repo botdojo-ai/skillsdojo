@@ -1,0 +1,13 @@
+{
+  "id": "mcp-think-tool",
+  "name": "mcp-think-tool",
+  "description": "An MCP server implementing the think tool for Claude",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/DannyMac180/mcp-think-tool",
+  "stars": 133,
+  "owner": "DannyMac180",
+  "repo": "mcp-think-tool",
+  "discoveredAt": "2026-01-28T13:21:43.025Z",
+  "keywords": []
+}

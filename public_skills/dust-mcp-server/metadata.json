@@ -1,0 +1,20 @@
+{
+  "id": "dust-mcp-server",
+  "name": "dust-mcp-server",
+  "description": "A TypeScript MCP server bridging Dust.tt agents with external tools via JSON-RPC, SSE, and secure API integration. Implements MCP specs/sdk  for Claude Desktop compatibility, featuring session management, real-time streaming, and Dust API connectivity.  ",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/ma3u/dust-mcp-server",
+  "stars": 5,
+  "owner": "ma3u",
+  "repo": "dust-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.028Z",
+  "keywords": [
+    "agentic",
+    "ai",
+    "aiagent",
+    "dust",
+    "mcp",
+    "mcpserver"
+  ]
+}

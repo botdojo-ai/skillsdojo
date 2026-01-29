@@ -1,0 +1,18 @@
+{
+  "id": "context7",
+  "name": "context7",
+  "description": "Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/upstash/context7",
+  "stars": 43893,
+  "owner": "upstash",
+  "repo": "context7",
+  "discoveredAt": "2026-01-28T13:21:43.004Z",
+  "keywords": [
+    "llm",
+    "mcp",
+    "mcp-server",
+    "vibe-coding"
+  ]
+}

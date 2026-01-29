@@ -1,0 +1,11 @@
+{
+  "id": "composio-mcp",
+  "name": "@composio/mcp",
+  "description": "MCP CLI tool",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@composio/mcp",
+  "discoveredAt": "2026-01-28T13:21:43.053Z",
+  "version": "1.0.9",
+  "keywords": []
+}

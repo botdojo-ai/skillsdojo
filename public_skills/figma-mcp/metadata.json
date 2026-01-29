@@ -1,0 +1,11 @@
+{
+  "id": "figma-mcp",
+  "name": "figma-mcp",
+  "description": "ModelContextProtocol server for Figma",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/figma-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.038Z",
+  "version": "0.1.4",
+  "keywords": []
+}

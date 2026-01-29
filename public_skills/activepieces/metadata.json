@@ -1,0 +1,27 @@
+{
+  "id": "activepieces",
+  "name": "activepieces",
+  "description": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/activepieces/activepieces",
+  "stars": 20532,
+  "owner": "activepieces",
+  "repo": "activepieces",
+  "discoveredAt": "2026-01-28T13:21:43.010Z",
+  "keywords": [
+    "ai-agent",
+    "ai-agent-tools",
+    "ai-agents",
+    "ai-agents-framework",
+    "mcp",
+    "mcp-server",
+    "mcp-tools",
+    "mcps",
+    "n8n-alternative",
+    "no-code-automation",
+    "workflow",
+    "workflow-automation",
+    "workflows"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "claude-chatgpt-mcp",
+  "name": "claude-chatgpt-mcp",
+  "description": "A Claude MCP tool to interact with the ChatGPT desktop app on macOS",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/syedazharmbnr1/claude-chatgpt-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/claude-chatgpt-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.047Z",
+  "version": "1.0.1",
+  "keywords": [
+    "mcp",
+    "claude",
+    "chatgpt",
+    "mac"
+  ]
+}

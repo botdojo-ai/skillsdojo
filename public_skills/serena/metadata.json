@@ -1,0 +1,24 @@
+{
+  "id": "serena",
+  "name": "serena",
+  "description": "A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server & other integrations)",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/oraios/serena",
+  "stars": 19339,
+  "owner": "oraios",
+  "repo": "serena",
+  "discoveredAt": "2026-01-28T13:21:43.011Z",
+  "keywords": [
+    "agent",
+    "ai",
+    "ai-coding",
+    "claude",
+    "claude-code",
+    "language-server",
+    "llms",
+    "mcp-server",
+    "programming",
+    "vibe-coding"
+  ]
+}

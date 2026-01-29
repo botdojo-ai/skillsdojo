@@ -1,0 +1,13 @@
+{
+  "id": "docker-mcp",
+  "name": "docker-mcp",
+  "description": "A docker MCP Server (modelcontextprotocol)",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/QuantGeekDev/docker-mcp",
+  "stars": 446,
+  "owner": "QuantGeekDev",
+  "repo": "docker-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.024Z",
+  "keywords": []
+}

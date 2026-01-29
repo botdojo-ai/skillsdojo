@@ -1,0 +1,20 @@
+{
+  "id": "szjc-szjc-mcp-server",
+  "name": "@szjc/szjc-mcp-server",
+  "description": "MCP Server for the Szjc API using @modelcontextprotocol/sdk",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/szjc/szjc-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@szjc/szjc-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.041Z",
+  "version": "1.0.24",
+  "keywords": [
+    "szjc",
+    "mcp",
+    "server",
+    "modelcontextprotocol",
+    "shuzijiancai",
+    "api",
+    "ide"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "modelcontextprotocol-server-filesystem",
+  "name": "@modelcontextprotocol/server-filesystem",
+  "description": "MCP server for filesystem access",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/servers.git",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem",
+  "discoveredAt": "2026-01-28T13:21:43.030Z",
+  "version": "2026.1.14",
+  "keywords": []
+}

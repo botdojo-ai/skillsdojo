@@ -1,0 +1,12 @@
+{
+  "id": "jetbrains-mcp-proxy",
+  "name": "@jetbrains/mcp-proxy",
+  "description": "A MCP proxy to redirect requests to JetBrains IDEs",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/JetBrains/mcp-jetbrains.git",
+  "npmUrl": "https://www.npmjs.com/package/@jetbrains/mcp-proxy",
+  "discoveredAt": "2026-01-28T13:21:43.051Z",
+  "version": "1.8.0",
+  "keywords": []
+}

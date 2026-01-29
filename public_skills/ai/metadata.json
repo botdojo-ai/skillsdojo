@@ -1,0 +1,29 @@
+{
+  "id": "ai",
+  "name": "ai",
+  "description": "AI SDK by Vercel - The AI Toolkit for TypeScript and JavaScript",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/vercel/ai.git",
+  "npmUrl": "https://www.npmjs.com/package/ai",
+  "discoveredAt": "2026-01-28T13:21:43.052Z",
+  "version": "6.0.57",
+  "keywords": [
+    "ai",
+    "vercel",
+    "sdk",
+    "mcp",
+    "tool-calling",
+    "tools",
+    "structured-output",
+    "agent",
+    "agentic",
+    "generative",
+    "chatbot",
+    "prompt",
+    "inference",
+    "llm",
+    "language-model",
+    "streaming"
+  ]
+}

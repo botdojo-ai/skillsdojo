@@ -1,0 +1,16 @@
+{
+  "id": "sentry-mcp-server",
+  "name": "@sentry/mcp-server",
+  "description": "Sentry MCP Server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+ssh://git@github.com/getsentry/sentry-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@sentry/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.033Z",
+  "version": "0.29.0",
+  "keywords": [
+    "sentry",
+    "mcp",
+    "model-context-protocol"
+  ]
+}

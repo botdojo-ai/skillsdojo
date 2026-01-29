@@ -1,0 +1,19 @@
+{
+  "id": "mcp-server-text-editor",
+  "name": "mcp-server-text-editor",
+  "description": "An open source implementation of the Claude built-in text editor tool",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/bhouston/mcp-server-text-editor",
+  "stars": 33,
+  "owner": "bhouston",
+  "repo": "mcp-server-text-editor",
+  "discoveredAt": "2026-01-28T13:21:43.027Z",
+  "keywords": [
+    "ai-tools",
+    "claude",
+    "mcp",
+    "model-context-protocol",
+    "text-editor"
+  ]
+}

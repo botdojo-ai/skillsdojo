@@ -1,0 +1,11 @@
+{
+  "id": "pengzhile-fuclaude",
+  "name": "pengzhile/fuclaude",
+  "description": "Nothing",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/pengzhile/fuclaude",
+  "stars": 22,
+  "discoveredAt": "2026-01-28T13:21:43.027Z",
+  "pulls": 30155
+}

@@ -1,0 +1,12 @@
+{
+  "id": "agent-infra-mcp-server-filesystem",
+  "name": "@agent-infra/mcp-server-filesystem",
+  "description": "MCP server for filesystem access",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/bytedance/UI-TARS-desktop.git",
+  "npmUrl": "https://www.npmjs.com/package/@agent-infra/mcp-server-filesystem",
+  "discoveredAt": "2026-01-28T13:21:43.034Z",
+  "version": "1.2.29",
+  "keywords": []
+}

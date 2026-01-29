@@ -1,0 +1,11 @@
+{
+  "id": "davidsmith3-mcp-server",
+  "name": "davidsmith3/mcp-server",
+  "description": "An extensible Model Context Protocol (MCP) server",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/davidsmith3/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.057Z",
+  "pulls": 2603
+}

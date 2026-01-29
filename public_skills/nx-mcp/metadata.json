@@ -1,0 +1,20 @@
+{
+  "id": "nx-mcp",
+  "name": "nx-mcp",
+  "description": "A Model Context Protocol server implementation for Nx",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/nrwl/nx-console.git",
+  "npmUrl": "https://www.npmjs.com/package/nx-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.047Z",
+  "version": "0.15.0",
+  "keywords": [
+    "nx",
+    "monorepo",
+    "ai",
+    "mcp",
+    "model",
+    "context",
+    "protocol"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bakies-claude-cloud-claude-session",
+  "name": "bakies/claude-cloud-claude-session",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/bakies/claude-cloud-claude-session",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.064Z",
+  "pulls": 311205
+}

@@ -1,0 +1,28 @@
+{
+  "id": "csharp-utcp",
+  "name": "csharp-utcp",
+  "description": "A high-performance, native C# implementation of the Universal Tool Calling Protocol - enabling AI agents to discover and communicate directly with tools without wrappers or middleware.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/Cicatriiz/csharp-utcp",
+  "stars": 5,
+  "owner": "Cicatriiz",
+  "repo": "csharp-utcp",
+  "discoveredAt": "2026-01-28T13:21:43.028Z",
+  "keywords": [
+    "ai",
+    "ai-agent",
+    "ai-agent-tools",
+    "artificial-intelligence",
+    "claude",
+    "csharp",
+    "developer-tools",
+    "implementation",
+    "llm",
+    "mcp",
+    "model-context-protocol",
+    "open-source",
+    "universal-tooling",
+    "utcp"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "agentico-mcp-github-sse",
+  "name": "agentico/mcp-github-sse",
+  "description": "MCP GitHub SSE Server by https://gentico.dev. A spinoff from @modelcontextprotocol/servers.",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/agentico/mcp-github-sse",
+  "stars": 1,
+  "discoveredAt": "2026-01-28T13:21:43.029Z",
+  "pulls": 129
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mcp_code_analyzer",
+  "name": "mcp_code_analyzer",
+  "description": "A Model Context Protocol (MCP) server implementation for comprehensive code analysis. This tool integrates with Claude Desktop to provide code analysis capabilities through natural language interactions.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/emiryasar/mcp_code_analyzer",
+  "stars": 39,
+  "owner": "emiryasar",
+  "repo": "mcp_code_analyzer",
+  "discoveredAt": "2026-01-28T13:21:43.026Z",
+  "keywords": []
+}

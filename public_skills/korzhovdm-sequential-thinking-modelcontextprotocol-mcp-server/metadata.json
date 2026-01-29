@@ -1,0 +1,11 @@
+{
+  "id": "korzhovdm-sequential-thinking-modelcontextprotocol-mcp-server",
+  "name": "korzhovdm/sequential-thinking-modelcontextprotocol-mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/korzhovdm/sequential-thinking-modelcontextprotocol-mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.060Z",
+  "pulls": 212
+}

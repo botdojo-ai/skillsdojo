@@ -1,0 +1,20 @@
+{
+  "id": "xcodebuildmcp",
+  "name": "xcodebuildmcp",
+  "description": "XcodeBuildMCP is a ModelContextProtocol server that provides tools for Xcode project management, simulator management, and app utilities.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/cameroncooke/XcodeBuildMCP.git",
+  "npmUrl": "https://www.npmjs.com/package/xcodebuildmcp",
+  "discoveredAt": "2026-01-28T13:21:43.039Z",
+  "version": "1.15.1",
+  "keywords": [
+    "xcodebuild",
+    "mcp",
+    "modelcontextprotocol",
+    "xcode",
+    "ios",
+    "macos",
+    "simulator"
+  ]
+}

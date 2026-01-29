@@ -1,0 +1,12 @@
+{
+  "id": "modelcontextprotocol-server-sequential-thinking",
+  "name": "@modelcontextprotocol/server-sequential-thinking",
+  "description": "MCP server for sequential thinking and problem solving",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/servers.git",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking",
+  "discoveredAt": "2026-01-28T13:21:43.035Z",
+  "version": "2025.12.18",
+  "keywords": []
+}

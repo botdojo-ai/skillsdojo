@@ -1,0 +1,28 @@
+{
+  "id": "firecrawl-mcp-server",
+  "name": "firecrawl-mcp-server",
+  "description": "🔥 Official Firecrawl MCP Server - Adds powerful web scraping and search to Cursor, Claude and any other LLM clients.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/firecrawl/firecrawl-mcp-server",
+  "stars": 5353,
+  "owner": "firecrawl",
+  "repo": "firecrawl-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.014Z",
+  "keywords": [
+    "batch-processing",
+    "claude",
+    "content-extraction",
+    "data-collection",
+    "firecrawl",
+    "firecrawl-ai",
+    "javascript-rendering",
+    "llm-tools",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "search-api",
+    "web-crawler",
+    "web-scraping"
+  ]
+}

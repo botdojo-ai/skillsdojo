@@ -1,0 +1,20 @@
+{
+  "id": "mcpadapt",
+  "name": "mcpadapt",
+  "description": "Unlock 650+ MCP servers tools in your favorite agentic framework.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/grll/mcpadapt",
+  "stars": 415,
+  "owner": "grll",
+  "repo": "mcpadapt",
+  "discoveredAt": "2026-01-28T13:21:43.024Z",
+  "keywords": [
+    "langchain",
+    "llamaindex",
+    "modelcontextprotocol",
+    "pydantic-ai",
+    "smolagents",
+    "swarm"
+  ]
+}

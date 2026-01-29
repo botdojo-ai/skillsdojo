@@ -1,0 +1,19 @@
+{
+  "id": "uniswap-ai-toolkit-claude-mcp-helper",
+  "name": "@uniswap/ai-toolkit-claude-mcp-helper",
+  "description": "CLI tool for managing MCP servers in Claude Code workspaces",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/Uniswap/ai-toolkit.git",
+  "npmUrl": "https://www.npmjs.com/package/@uniswap/ai-toolkit-claude-mcp-helper",
+  "discoveredAt": "2026-01-28T13:21:43.046Z",
+  "version": "1.0.19",
+  "keywords": [
+    "claude-code",
+    "mcp",
+    "model-context-protocol",
+    "cli",
+    "uniswap",
+    "ai-toolkit"
+  ]
+}

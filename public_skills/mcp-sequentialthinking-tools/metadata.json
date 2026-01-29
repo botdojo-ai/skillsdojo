@@ -1,0 +1,18 @@
+{
+  "id": "mcp-sequentialthinking-tools",
+  "name": "mcp-sequentialthinking-tools",
+  "description": "🧠 An adaptation of the MCP Sequential Thinking Server to guide tool usage. This server provides recommendations for which MCP tools would be most effective at each stage.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/spences10/mcp-sequentialthinking-tools",
+  "stars": 555,
+  "owner": "spences10",
+  "repo": "mcp-sequentialthinking-tools",
+  "discoveredAt": "2026-01-28T13:21:43.023Z",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "modelcontextprotocol",
+    "tool"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "devdocs",
+  "name": "DevDocs",
+  "description": "Completely free, private, UI based Tech Documentation MCP server. Designed for coders and software developers in mind. Easily integrate into Cursor, Windsurf, Cline, Roo Code, Claude Desktop App ",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/cyberagiinc/DevDocs",
+  "stars": 2017,
+  "owner": "cyberagiinc",
+  "repo": "DevDocs",
+  "discoveredAt": "2026-01-28T13:21:43.017Z",
+  "keywords": [
+    "cline",
+    "crawl4ai",
+    "cursor",
+    "documentation",
+    "llm",
+    "playwright",
+    "python3",
+    "scraper",
+    "security",
+    "typescript",
+    "windsurf"
+  ]
+}

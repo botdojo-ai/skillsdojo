@@ -1,0 +1,29 @@
+{
+  "id": "codebase-curator",
+  "name": "codebase-curator",
+  "description": "A set of tools to use while coding using the Claude code cli. \"smartgrep\" is a grep-like tool that uses a semantic index of the codebase to provide Claudes with information tailored for how they think. Claudes love it! A \"codebase-curator\" Claude to assist the \"developer\" Claude in his coding tasks, together they implement fully integrated code.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/RLabs-Inc/codebase-curator",
+  "stars": 5,
+  "owner": "RLabs-Inc",
+  "repo": "codebase-curator",
+  "discoveredAt": "2026-01-28T13:21:43.028Z",
+  "keywords": [
+    "ai",
+    "ai-agents",
+    "ai-assistant",
+    "ai-coding",
+    "ai-coding-tools",
+    "ai-tools",
+    "claude",
+    "claude-code",
+    "grep",
+    "grep-like",
+    "grep-search",
+    "large-codebase",
+    "mcp",
+    "mcp-server",
+    "mcp-tools"
+  ]
+}

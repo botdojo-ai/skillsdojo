@@ -1,0 +1,27 @@
+{
+  "id": "mcp-server-code-execution-mode",
+  "name": "mcp-server-code-execution-mode",
+  "description": "An MCP server that executes Python code in isolated rootless containers with optional MCP server proxying. Implementation of Anthropic's and Cloudflare's ideas for reducing MCP tool definitions context bloat.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/elusznik/mcp-server-code-execution-mode",
+  "stars": 301,
+  "owner": "elusznik",
+  "repo": "mcp-server-code-execution-mode",
+  "discoveredAt": "2026-01-28T13:21:43.024Z",
+  "keywords": [
+    "agentic-ai",
+    "agents",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "code-execution",
+    "docker",
+    "mcp",
+    "model-context-protocol",
+    "orchestration",
+    "podman",
+    "python",
+    "token-optimization"
+  ]
+}

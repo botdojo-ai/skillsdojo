@@ -1,0 +1,11 @@
+{
+  "id": "claudehohl-stikked",
+  "name": "claudehohl/stikked",
+  "description": "An advanced and beautiful pastebin written in PHP",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/claudehohl/stikked",
+  "stars": 4,
+  "discoveredAt": "2026-01-28T13:21:43.029Z",
+  "pulls": 129838
+}

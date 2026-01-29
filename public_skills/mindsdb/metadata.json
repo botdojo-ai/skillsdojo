@@ -1,0 +1,28 @@
+{
+  "id": "mindsdb",
+  "name": "mindsdb",
+  "description": "Federated Query Engine for AI - The only MCP Server you'll ever need",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/mindsdb/mindsdb",
+  "stars": 38329,
+  "owner": "mindsdb",
+  "repo": "mindsdb",
+  "discoveredAt": "2026-01-28T13:21:43.005Z",
+  "keywords": [
+    "agents",
+    "ai",
+    "analytics",
+    "artificial-inteligence",
+    "bigquery",
+    "business-intelligence",
+    "databases",
+    "hacktoberfest",
+    "llms",
+    "mcp",
+    "mssql",
+    "mysql",
+    "postgresql",
+    "rag"
+  ]
+}

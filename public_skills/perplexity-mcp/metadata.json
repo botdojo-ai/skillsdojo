@@ -1,0 +1,13 @@
+{
+  "id": "perplexity-mcp",
+  "name": "perplexity-mcp",
+  "description": "A lightweight, easy-to-use Model Context Protocol (MCP) implementation that seamlessly integrates Perplexity's powerful AI models into Claude Desktop. This bridge lets Claude access Perplexity's search and reasoning capabilities through Anthropic's standardized tool interface.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/Family-IT-Guy/perplexity-mcp",
+  "stars": 16,
+  "owner": "Family-IT-Guy",
+  "repo": "perplexity-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.027Z",
+  "keywords": []
+}

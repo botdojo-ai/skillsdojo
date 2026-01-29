@@ -1,0 +1,22 @@
+{
+  "id": "kenkaiiii-queen-mcp",
+  "name": "@kenkaiiii/queen-mcp",
+  "description": "Queen Claude MCP server - streamlined with 14 essential tools for Next.js development",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@kenkaiiii/queen-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.046Z",
+  "version": "3.29.0",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "queen-claude",
+    "autonomous-development",
+    "database",
+    "ai-agents",
+    "queen-styles",
+    "design-system",
+    "validation",
+    "hooks"
+  ]
+}

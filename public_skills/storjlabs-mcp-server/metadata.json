@@ -1,0 +1,11 @@
+{
+  "id": "storjlabs-mcp-server",
+  "name": "storjlabs/mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/storjlabs/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.058Z",
+  "pulls": 1928
+}

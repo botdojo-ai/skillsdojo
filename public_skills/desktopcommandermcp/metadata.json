@@ -1,0 +1,22 @@
+{
+  "id": "desktopcommandermcp",
+  "name": "DesktopCommanderMCP",
+  "description": "This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabilities",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+  "stars": 5341,
+  "owner": "wonderwhy-er",
+  "repo": "DesktopCommanderMCP",
+  "discoveredAt": "2026-01-28T13:21:43.015Z",
+  "keywords": [
+    "agent",
+    "ai",
+    "code-analysis",
+    "code-generation",
+    "mcp",
+    "terminal-ai",
+    "terminal-automation",
+    "vibe-coding"
+  ]
+}

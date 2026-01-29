@@ -1,0 +1,19 @@
+{
+  "id": "telvok-librarian-mcp",
+  "name": "@telvok/librarian-mcp",
+  "description": "Knowledge capture MCP server - remember what you learn with AI",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/telvokdev/librarian.git",
+  "npmUrl": "https://www.npmjs.com/package/@telvok/librarian-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.054Z",
+  "version": "1.5.4",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "ai",
+    "knowledge-management",
+    "memory"
+  ]
+}

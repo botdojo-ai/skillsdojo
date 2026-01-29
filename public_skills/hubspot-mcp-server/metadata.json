@@ -1,0 +1,14 @@
+{
+  "id": "hubspot-mcp-server",
+  "name": "@hubspot/mcp-server",
+  "description": "MCP Server for developers building HubSpot Apps",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@hubspot/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.034Z",
+  "version": "0.4.0",
+  "keywords": [
+    "mcp",
+    "hubspot"
+  ]
+}

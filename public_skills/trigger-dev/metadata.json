@@ -1,0 +1,27 @@
+{
+  "id": "trigger-dev",
+  "name": "trigger.dev",
+  "description": "Trigger.dev – build and deploy fully‑managed AI agents and workflows",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/triggerdotdev/trigger.dev",
+  "stars": 13447,
+  "owner": "triggerdotdev",
+  "repo": "trigger.dev",
+  "discoveredAt": "2026-01-28T13:21:43.011Z",
+  "keywords": [
+    "ai",
+    "ai-agent-framework",
+    "ai-agents",
+    "automation",
+    "background-jobs",
+    "mcp",
+    "mcp-server",
+    "nextjs",
+    "orchestration",
+    "scheduler",
+    "serverless",
+    "workflow-automation",
+    "workflows"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "awesome-mcp-zh",
+  "name": "Awesome-MCP-ZH",
+  "description": "MCP 资源精选， MCP指南，Claude MCP，MCP Servers, MCP Clients",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/yzfly/Awesome-MCP-ZH",
+  "stars": 5960,
+  "owner": "yzfly",
+  "repo": "Awesome-MCP-ZH",
+  "discoveredAt": "2026-01-28T13:21:43.014Z",
+  "keywords": [
+    "claude",
+    "claude-mcp",
+    "deepseek",
+    "deepseek-mcp",
+    "mcp",
+    "mcp-clients",
+    "mcp-host",
+    "mcp-server",
+    "mcp-servers",
+    "mcp-servers-directory",
+    "mcp-tools",
+    "qwen-mcp"
+  ]
+}

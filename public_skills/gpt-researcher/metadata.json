@@ -1,0 +1,25 @@
+{
+  "id": "gpt-researcher",
+  "name": "gpt-researcher",
+  "description": "An autonomous agent that conducts deep research on any data using any LLM providers.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/assafelovic/gpt-researcher",
+  "stars": 25094,
+  "owner": "assafelovic",
+  "repo": "gpt-researcher",
+  "discoveredAt": "2026-01-28T13:21:43.008Z",
+  "keywords": [
+    "agent",
+    "ai",
+    "automation",
+    "deepresearch",
+    "llms",
+    "mcp",
+    "mcp-server",
+    "python",
+    "research",
+    "search",
+    "webscraping"
+  ]
+}

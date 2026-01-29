@@ -1,0 +1,11 @@
+{
+  "id": "mcp-starter",
+  "name": "mcp-starter",
+  "description": "ModelContextProtocol starter server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/mcp-starter",
+  "discoveredAt": "2026-01-28T13:21:43.041Z",
+  "version": "0.1.0",
+  "keywords": []
+}

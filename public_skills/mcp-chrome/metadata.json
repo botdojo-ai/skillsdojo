@@ -1,0 +1,13 @@
+{
+  "id": "mcp-chrome",
+  "name": "mcp-chrome",
+  "description": "Chrome MCP Server is a Chrome extension-based Model Context Protocol (MCP) server that exposes your Chrome browser functionality to AI assistants like Claude, enabling complex browser automation, content analysis, and semantic search.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/hangwin/mcp-chrome",
+  "stars": 10150,
+  "owner": "hangwin",
+  "repo": "mcp-chrome",
+  "discoveredAt": "2026-01-28T13:21:43.012Z",
+  "keywords": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "railway-mcp-server",
+  "name": "@railway/mcp-server",
+  "description": "Official Railway MCP server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/railwayapp/railway-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@railway/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.037Z",
+  "version": "0.1.8",
+  "keywords": [
+    "railway",
+    "mcp",
+    "modelcontextprotocol",
+    "mcp-server"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bakies-claude-cloud-claude-runner",
+  "name": "bakies/claude-cloud-claude-runner",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/bakies/claude-cloud-claude-runner",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.064Z",
+  "pulls": 737513
+}

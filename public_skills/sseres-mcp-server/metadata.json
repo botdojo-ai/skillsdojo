@@ -1,0 +1,11 @@
+{
+  "id": "sseres-mcp-server",
+  "name": "sseres/mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/sseres/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.059Z",
+  "pulls": 1724
+}

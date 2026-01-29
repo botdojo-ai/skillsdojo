@@ -1,0 +1,11 @@
+{
+  "id": "preply-ds-mcp",
+  "name": "@preply/ds-mcp",
+  "description": "MCP server for the Preply Design System",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@preply/ds-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.049Z",
+  "version": "9.0.0",
+  "keywords": []
+}

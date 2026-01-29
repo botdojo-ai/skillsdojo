@@ -1,0 +1,26 @@
+{
+  "id": "benborla29-mcp-server-mysql",
+  "name": "@benborla29/mcp-server-mysql",
+  "description": "MCP server for interacting with MySQL databases with write operations support",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@benborla29/mcp-server-mysql",
+  "discoveredAt": "2026-01-28T13:21:43.048Z",
+  "version": "2.0.8",
+  "keywords": [
+    "node",
+    "mcp",
+    "ai",
+    "cursor",
+    "mcp-server",
+    "modelcontextprotocol",
+    "smithery",
+    "mcp-get",
+    "mcp-put",
+    "mcp-post",
+    "mcp-delete",
+    "mcp-patch",
+    "mcp-options",
+    "mcp-head"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "amap-amap-maps-mcp-server",
+  "name": "@amap/amap-maps-mcp-server",
+  "description": "MCP server for using the AMap Maps API",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@amap/amap-maps-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.036Z",
+  "version": "0.0.8",
+  "keywords": []
+}

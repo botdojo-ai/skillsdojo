@@ -1,0 +1,12 @@
+{
+  "id": "inkeep-agents-manage-mcp",
+  "name": "@inkeep/agents-manage-mcp",
+  "description": "Model Context Protocol (MCP) Server for the *@inkeep/agents-manage-mcp* API.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/inkeep/agents.git",
+  "npmUrl": "https://www.npmjs.com/package/@inkeep/agents-manage-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.052Z",
+  "version": "0.42.0",
+  "keywords": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "claudezss-claude-api",
+  "name": "claudezss/claude-api",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/claudezss/claude-api",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.065Z",
+  "pulls": 332
+}

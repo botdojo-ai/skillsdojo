@@ -1,0 +1,12 @@
+{
+  "id": "ivotoby-openapi-mcp-server",
+  "name": "@ivotoby/openapi-mcp-server",
+  "description": "An MCP server that exposes OpenAPI endpoints as resources",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/ivo-toby/mcp-openapi-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@ivotoby/openapi-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.050Z",
+  "version": "1.12.4",
+  "keywords": []
+}

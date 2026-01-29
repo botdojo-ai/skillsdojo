@@ -1,0 +1,24 @@
+{
+  "id": "palette-mcp",
+  "name": "palette-mcp",
+  "description": "MCP server for converting Figma designs to React/Vue components using design system",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/Opti-kjh/palette.git",
+  "npmUrl": "https://www.npmjs.com/package/palette-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.054Z",
+  "version": "1.4.10",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "design-system",
+    "figma",
+    "react",
+    "vue",
+    "cursor",
+    "ai",
+    "code-generation",
+    "component-library",
+    "smithery"
+  ]
+}

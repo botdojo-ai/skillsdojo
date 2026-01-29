@@ -1,0 +1,11 @@
+{
+  "id": "singiamtel-claude-code",
+  "name": "singiamtel/claude-code",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/singiamtel/claude-code",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.066Z",
+  "pulls": 10218
+}

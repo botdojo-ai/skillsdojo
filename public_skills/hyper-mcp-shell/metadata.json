@@ -1,0 +1,11 @@
+{
+  "id": "hyper-mcp-shell",
+  "name": "hyper-mcp-shell",
+  "description": "A shell for the ModelContextProtocol",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/hyper-mcp-shell",
+  "discoveredAt": "2026-01-28T13:21:43.042Z",
+  "version": "1.1.2",
+  "keywords": []
+}

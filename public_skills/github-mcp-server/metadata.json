@@ -1,0 +1,17 @@
+{
+  "id": "github-mcp-server",
+  "name": "github-mcp-server",
+  "description": "GitHub's official MCP Server",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/github/github-mcp-server",
+  "stars": 26403,
+  "owner": "github",
+  "repo": "github-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.007Z",
+  "keywords": [
+    "github",
+    "mcp",
+    "mcp-server"
+  ]
+}

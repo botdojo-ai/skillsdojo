@@ -1,0 +1,12 @@
+{
+  "id": "next-devtools-mcp",
+  "name": "next-devtools-mcp",
+  "description": "Next.js development tools MCP server with stdio transport",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/vercel/next-devtools-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/next-devtools-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.036Z",
+  "version": "0.3.10",
+  "keywords": []
+}

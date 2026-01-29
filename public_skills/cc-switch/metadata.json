@@ -1,0 +1,30 @@
+{
+  "id": "cc-switch",
+  "name": "cc-switch",
+  "description": "A cross-platform desktop All-in-One assistant tool for Claude Code, Codex, OpenCode & Gemini CLI.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/farion1231/cc-switch",
+  "stars": 14463,
+  "owner": "farion1231",
+  "repo": "cc-switch",
+  "discoveredAt": "2026-01-28T13:21:43.011Z",
+  "keywords": [
+    "ai-tools",
+    "claude-code",
+    "codex",
+    "desktop-app",
+    "kimi-k2-thiking",
+    "mcp",
+    "minimax",
+    "open-source",
+    "opencode",
+    "provider-management",
+    "rust",
+    "skills",
+    "skills-management",
+    "tauri",
+    "typescript",
+    "wsl-support"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "web-eval-agent",
+  "name": "web-eval-agent",
+  "description": "An MCP server that autonomously evaluates web applications. ",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/refreshdotdev/web-eval-agent",
+  "stars": 1235,
+  "owner": "refreshdotdev",
+  "repo": "web-eval-agent",
+  "discoveredAt": "2026-01-28T13:21:43.020Z",
+  "keywords": [
+    "debugging",
+    "debugging-tool",
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
+    "playwright",
+    "qa",
+    "vibe-coding",
+    "vibe-testing"
+  ]
+}

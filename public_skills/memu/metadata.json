@@ -1,0 +1,26 @@
+{
+  "id": "memu",
+  "name": "memU",
+  "description": "Memory for 24/7 proactive agents like moltbot (clawdbot).",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/NevaMind-AI/memU",
+  "stars": 5292,
+  "owner": "NevaMind-AI",
+  "repo": "memU",
+  "discoveredAt": "2026-01-28T13:21:43.015Z",
+  "keywords": [
+    "agent-memory",
+    "agentic-workflow",
+    "claude",
+    "claude-skills",
+    "clawdbot",
+    "clawdbot-skill",
+    "mcp",
+    "memory",
+    "proactive",
+    "proactive-ai",
+    "sandbox",
+    "skills"
+  ]
+}

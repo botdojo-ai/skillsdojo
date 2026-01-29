@@ -1,0 +1,12 @@
+{
+  "id": "supabase-mcp-server-supabase",
+  "name": "@supabase/mcp-server-supabase",
+  "description": "MCP server for interacting with Supabase",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/supabase-community/supabase-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@supabase/mcp-server-supabase",
+  "discoveredAt": "2026-01-28T13:21:43.032Z",
+  "version": "0.6.2",
+  "keywords": []
+}

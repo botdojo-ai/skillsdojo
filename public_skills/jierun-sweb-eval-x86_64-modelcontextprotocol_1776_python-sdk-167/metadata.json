@@ -1,0 +1,11 @@
+{
+  "id": "jierun-sweb-eval-x86_64-modelcontextprotocol_1776_python-sdk-167",
+  "name": "jierun/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-167",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/jierun/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-167",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.063Z",
+  "pulls": 36
+}

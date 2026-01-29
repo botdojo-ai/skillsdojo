@@ -1,0 +1,22 @@
+{
+  "id": "everything-claude-code",
+  "name": "everything-claude-code",
+  "description": "Complete Claude Code configuration collection - agents, skills, hooks, commands, rules, MCPs. Battle-tested configs from an Anthropic hackathon winner.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/affaan-m/everything-claude-code",
+  "stars": 33287,
+  "owner": "affaan-m",
+  "repo": "everything-claude-code",
+  "discoveredAt": "2026-01-28T13:21:43.006Z",
+  "keywords": [
+    "ai-agents",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "developer-tools",
+    "llm",
+    "mcp",
+    "productivity"
+  ]
+}

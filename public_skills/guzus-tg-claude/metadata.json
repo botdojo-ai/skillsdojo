@@ -1,0 +1,11 @@
+{
+  "id": "guzus-tg-claude",
+  "name": "guzus/tg-claude",
+  "description": "Telegram client for Claude Code",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/guzus/tg-claude",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.067Z",
+  "pulls": 4726
+}

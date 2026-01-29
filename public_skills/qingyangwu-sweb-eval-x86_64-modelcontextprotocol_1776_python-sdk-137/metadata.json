@@ -1,0 +1,11 @@
+{
+  "id": "qingyangwu-sweb-eval-x86_64-modelcontextprotocol_1776_python-sdk-137",
+  "name": "qingyangwu/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-137",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/qingyangwu/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-137",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.062Z",
+  "pulls": 61
+}

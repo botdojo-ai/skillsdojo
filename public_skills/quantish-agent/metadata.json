@@ -1,0 +1,28 @@
+{
+  "id": "quantish-agent",
+  "name": "@quantish/agent",
+  "description": "AI-powered agent for trading on Polymarket and Kalshi",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/joinQuantish/quantish-agent.git",
+  "npmUrl": "https://www.npmjs.com/package/@quantish/agent",
+  "discoveredAt": "2026-01-28T13:21:43.053Z",
+  "version": "0.1.67",
+  "keywords": [
+    "polymarket",
+    "kalshi",
+    "trading",
+    "cli",
+    "ai",
+    "claude",
+    "agent",
+    "mcp",
+    "prediction-markets",
+    "polymarket-trading",
+    "kalshi-trading",
+    "solana",
+    "dflow",
+    "ai-agent",
+    "trading-bot"
+  ]
+}

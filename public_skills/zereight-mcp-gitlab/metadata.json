@@ -1,0 +1,12 @@
+{
+  "id": "zereight-mcp-gitlab",
+  "name": "@zereight/mcp-gitlab",
+  "description": "MCP server for using the GitLab API",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/zereight/gitlab-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@zereight/mcp-gitlab",
+  "discoveredAt": "2026-01-28T13:21:43.048Z",
+  "version": "2.0.24",
+  "keywords": []
+}

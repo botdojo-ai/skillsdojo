@@ -1,0 +1,12 @@
+{
+  "id": "modelcontextprotocol-server-everything",
+  "name": "@modelcontextprotocol/server-everything",
+  "description": "MCP server that exercises all the features of the MCP protocol",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/servers.git",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/server-everything",
+  "discoveredAt": "2026-01-28T13:21:43.039Z",
+  "version": "2026.1.26",
+  "keywords": []
+}

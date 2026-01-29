@@ -1,0 +1,17 @@
+{
+  "id": "claude-plugins-official",
+  "name": "claude-plugins-official",
+  "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/anthropics/claude-plugins-official",
+  "stars": 5124,
+  "owner": "anthropics",
+  "repo": "claude-plugins-official",
+  "discoveredAt": "2026-01-28T13:21:43.016Z",
+  "keywords": [
+    "claude-code",
+    "mcp",
+    "skills"
+  ]
+}

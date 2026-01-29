@@ -1,0 +1,25 @@
+{
+  "id": "minecraft-mcp-server",
+  "name": "minecraft-mcp-server",
+  "description": "A Minecraft MCP Server powered by Mineflayer API. It allows to control a Minecraft character in real-time, allowing AI assistants to build structures, explore the world, and interact with the game environment through natural language instruction",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/yuniko-software/minecraft-mcp-server",
+  "stars": 450,
+  "owner": "yuniko-software",
+  "repo": "minecraft-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.023Z",
+  "keywords": [
+    "artificial-intelligence",
+    "claude",
+    "javascript",
+    "large-language-models",
+    "mcp",
+    "mcp-server",
+    "minecraft",
+    "modelcontextprotocol",
+    "natural-language-processing",
+    "nodejs",
+    "typescript"
+  ]
+}

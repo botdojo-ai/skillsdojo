@@ -1,0 +1,15 @@
+{
+  "id": "mcp-use-modelcontextprotocol-sdk",
+  "name": "@mcp-use/modelcontextprotocol-sdk",
+  "description": "Model Context Protocol implementation for TypeScript",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/typescript-sdk.git",
+  "npmUrl": "https://www.npmjs.com/package/@mcp-use/modelcontextprotocol-sdk",
+  "discoveredAt": "2026-01-28T13:21:43.043Z",
+  "version": "1.24.3-mcp-use.4",
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp"
+  ]
+}

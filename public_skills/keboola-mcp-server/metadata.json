@@ -1,0 +1,11 @@
+{
+  "id": "keboola-mcp-server",
+  "name": "keboola/mcp-server",
+  "description": "Keboola MCP server",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/keboola/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.055Z",
+  "pulls": 9677
+}

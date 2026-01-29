@@ -1,0 +1,18 @@
+{
+  "id": "ui5-mcp-server",
+  "name": "@ui5/mcp-server",
+  "description": "MCP server for UI5 application development",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/UI5/mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@ui5/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.032Z",
+  "version": "0.2.4",
+  "keywords": [
+    "openui5",
+    "sapui5",
+    "ui5",
+    "development",
+    "mcp"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "starryzhang-sweb-eval-x86_64-modelcontextprotocol_1776_python-sdk-325",
+  "name": "starryzhang/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-325",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/starryzhang/sweb.eval.x86_64.modelcontextprotocol_1776_python-sdk-325",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.063Z",
+  "pulls": 47
+}

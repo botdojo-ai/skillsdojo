@@ -1,0 +1,19 @@
+{
+  "id": "mcp-proxy",
+  "name": "mcp-proxy",
+  "description": "An MCP proxy server that aggregates and serves multiple MCP resource servers through a single HTTP server.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/tbxark/mcp-proxy",
+  "stars": 626,
+  "owner": "tbxark",
+  "repo": "mcp-proxy",
+  "discoveredAt": "2026-01-28T13:21:43.022Z",
+  "keywords": [
+    "claude",
+    "mcp",
+    "mcp-client",
+    "mcp-server",
+    "modelcontextprotocol"
+  ]
+}

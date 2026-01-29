@@ -1,0 +1,23 @@
+{
+  "id": "1panel",
+  "name": "1Panel",
+  "description": "🔥 1Panel provides an intuitive web interface and MCP Server to manage websites, files, containers, databases, and LLMs on a Linux server.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/1Panel-dev/1Panel",
+  "stars": 33036,
+  "owner": "1Panel-dev",
+  "repo": "1Panel",
+  "discoveredAt": "2026-01-28T13:21:43.007Z",
+  "keywords": [
+    "1panel",
+    "cockpit",
+    "docker",
+    "docker-ui",
+    "lamp",
+    "linux",
+    "lnmp",
+    "ollama",
+    "webmin"
+  ]
+}

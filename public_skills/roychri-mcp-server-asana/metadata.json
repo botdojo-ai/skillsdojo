@@ -1,0 +1,16 @@
+{
+  "id": "roychri-mcp-server-asana",
+  "name": "@roychri/mcp-server-asana",
+  "description": "MCP Server for Asana",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/roychri/mcp-server-asana.git",
+  "npmUrl": "https://www.npmjs.com/package/@roychri/mcp-server-asana",
+  "discoveredAt": "2026-01-28T13:21:43.034Z",
+  "version": "1.7.0",
+  "keywords": [
+    "asana",
+    "mcp",
+    "anthropic"
+  ]
+}

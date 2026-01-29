@@ -1,0 +1,24 @@
+{
+  "id": "gemini-mcp-tool",
+  "name": "gemini-mcp-tool",
+  "description": "MCP server that enables AI assistants to interact with Google Gemini CLI, leveraging Gemini's massive token window for large file analysis and codebase understanding",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/jamubc/gemini-mcp-tool",
+  "stars": 1880,
+  "owner": "jamubc",
+  "repo": "gemini-mcp-tool",
+  "discoveredAt": "2026-01-28T13:21:43.019Z",
+  "keywords": [
+    "ai",
+    "claude",
+    "cli",
+    "codebase-analysis",
+    "file-analysis",
+    "gemini",
+    "mcp",
+    "model-context-protocol",
+    "npm",
+    "typescript"
+  ]
+}

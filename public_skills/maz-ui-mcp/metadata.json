@@ -1,0 +1,16 @@
+{
+  "id": "maz-ui-mcp",
+  "name": "@maz-ui/mcp",
+  "description": "Maz-UI ModelContextProtocol Client",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/LouisMazel/maz-ui.git",
+  "npmUrl": "https://www.npmjs.com/package/@maz-ui/mcp",
+  "discoveredAt": "2026-01-28T13:21:43.040Z",
+  "version": "4.4.0",
+  "keywords": [
+    "maz-ui",
+    "modelcontextprotocol",
+    "client"
+  ]
+}

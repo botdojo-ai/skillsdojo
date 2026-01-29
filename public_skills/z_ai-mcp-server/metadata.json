@@ -1,0 +1,15 @@
+{
+  "id": "z_ai-mcp-server",
+  "name": "@z_ai/mcp-server",
+  "description": "MCP Server for Z.AI - A Model Context Protocol server that provides AI capabilities",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@z_ai/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.035Z",
+  "version": "0.1.2",
+  "keywords": [
+    "zai",
+    "mcp",
+    "vision"
+  ]
+}

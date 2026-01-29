@@ -1,0 +1,30 @@
+{
+  "id": "awesome-agent-skills",
+  "name": "awesome-agent-skills",
+  "description": "A curated list of skills, tools, tutorials, and capabilities for AI coding agents (Claude, Codex, Copilot, VS Code)",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/heilcheng/awesome-agent-skills",
+  "stars": 1765,
+  "owner": "heilcheng",
+  "repo": "awesome-agent-skills",
+  "discoveredAt": "2026-01-28T13:21:43.019Z",
+  "keywords": [
+    "agent-skills",
+    "ai-agents",
+    "ai-development",
+    "anthropic",
+    "automation",
+    "awesome",
+    "awesome-list",
+    "claude",
+    "codex",
+    "github-copilot",
+    "llm",
+    "mcp",
+    "openai",
+    "productivity",
+    "skill-md",
+    "vscode"
+  ]
+}

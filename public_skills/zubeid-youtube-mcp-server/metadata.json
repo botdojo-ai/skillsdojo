@@ -1,0 +1,19 @@
+{
+  "id": "zubeid-youtube-mcp-server",
+  "name": "zubeid-youtube-mcp-server",
+  "description": "YouTube MCP Server Implementation",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/ZubeidHendricks/youtube-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/zubeid-youtube-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.031Z",
+  "version": "1.0.0",
+  "keywords": [
+    "youtube",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "anthropic"
+  ]
+}

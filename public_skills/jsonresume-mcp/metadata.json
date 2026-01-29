@@ -1,0 +1,11 @@
+{
+  "id": "jsonresume-mcp",
+  "name": "@jsonresume/mcp",
+  "description": "ModelContextProtocol server for enhancing JSON Resumes",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@jsonresume/mcp",
+  "discoveredAt": "2026-01-28T13:21:43.044Z",
+  "version": "3.0.3",
+  "keywords": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mcp-server-kubernetes",
+  "name": "mcp-server-kubernetes",
+  "description": "MCP server for interacting with Kubernetes clusters via kubectl",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/Flux159/mcp-server-kubernetes.git",
+  "npmUrl": "https://www.npmjs.com/package/mcp-server-kubernetes",
+  "discoveredAt": "2026-01-28T13:21:43.033Z",
+  "version": "3.2.0",
+  "keywords": [
+    "mcp",
+    "kubernetes",
+    "claude",
+    "anthropic",
+    "kubectl"
+  ]
+}

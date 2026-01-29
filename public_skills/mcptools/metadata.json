@@ -1,0 +1,17 @@
+{
+  "id": "mcptools",
+  "name": "mcptools",
+  "description": "A command-line interface for interacting with MCP (Model Context Protocol) servers using both stdio and HTTP transport.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/f/mcptools",
+  "stars": 1455,
+  "owner": "f",
+  "repo": "mcptools",
+  "discoveredAt": "2026-01-28T13:21:43.020Z",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol"
+  ]
+}

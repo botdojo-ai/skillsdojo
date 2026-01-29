@@ -1,0 +1,12 @@
+{
+  "id": "modelcontextprotocol-conformance",
+  "name": "@modelcontextprotocol/conformance",
+  "description": "A framework for testing MCP (Model Context Protocol) client and server implementations against the specification.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/modelcontextprotocol/conformance.git",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/conformance",
+  "discoveredAt": "2026-01-28T13:21:43.041Z",
+  "version": "0.1.11",
+  "keywords": []
+}

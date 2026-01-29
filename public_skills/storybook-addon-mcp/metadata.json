@@ -1,0 +1,16 @@
+{
+  "id": "storybook-addon-mcp",
+  "name": "@storybook/addon-mcp",
+  "description": "Help agents automatically write and test stories for your UI components",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/storybookjs/mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@storybook/addon-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.050Z",
+  "version": "0.2.2",
+  "keywords": [
+    "storybook-addon",
+    "mcp",
+    "ai"
+  ]
+}

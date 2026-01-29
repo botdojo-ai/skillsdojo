@@ -1,0 +1,11 @@
+{
+  "id": "jhgaylor-mcp-inspector",
+  "name": "jhgaylor/mcp-inspector",
+  "description": "a dockerized version of modelcontextprotocol/inspector using dockerfile from aaronpowell",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/jhgaylor/mcp-inspector",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.060Z",
+  "pulls": 358
+}

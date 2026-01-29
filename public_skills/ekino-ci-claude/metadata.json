@@ -1,0 +1,11 @@
+{
+  "id": "ekino-ci-claude",
+  "name": "ekino/ci-claude",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/ekino/ci-claude",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.067Z",
+  "pulls": 3990
+}

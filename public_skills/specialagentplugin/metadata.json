@@ -1,0 +1,13 @@
+{
+  "id": "specialagentplugin",
+  "name": "SpecialAgentPlugin",
+  "description": "SpecialAgent is an Unreal Engine 5 plugin that implements a Model Context Protocol (MCP)  server, allowing Large Language Models like Claude to programmatically interact with UE5  projects. With 71+ tool endpoints across 14 service categories, LLMs gain comprehensive control for building complex 3D environments.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/ArtisanGameworks/SpecialAgentPlugin",
+  "stars": 7,
+  "owner": "ArtisanGameworks",
+  "repo": "SpecialAgentPlugin",
+  "discoveredAt": "2026-01-28T13:21:43.028Z",
+  "keywords": []
+}

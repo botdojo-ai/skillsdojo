@@ -1,0 +1,14 @@
+{
+  "id": "mcp-server",
+  "name": "mcp-server",
+  "description": "mcp server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/sandy-mount/mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.030Z",
+  "version": "0.0.9",
+  "keywords": [
+    "mcp"
+  ]
+}

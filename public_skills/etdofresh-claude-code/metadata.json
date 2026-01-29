@@ -1,0 +1,11 @@
+{
+  "id": "etdofresh-claude-code",
+  "name": "etdofresh/claude-code",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/etdofresh/claude-code",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.067Z",
+  "pulls": 4949
+}

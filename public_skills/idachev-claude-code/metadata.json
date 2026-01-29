@@ -1,0 +1,11 @@
+{
+  "id": "idachev-claude-code",
+  "name": "idachev/claude-code",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/idachev/claude-code",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.066Z",
+  "pulls": 10416
+}

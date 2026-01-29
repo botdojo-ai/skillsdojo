@@ -1,0 +1,17 @@
+{
+  "id": "dynatrace-oss-dynatrace-mcp-server",
+  "name": "@dynatrace-oss/dynatrace-mcp-server",
+  "description": "Model Context Protocol (MCP) server for Dynatrace",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/dynatrace-oss/dynatrace-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/@dynatrace-oss/dynatrace-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.033Z",
+  "version": "1.3.1",
+  "keywords": [
+    "Dynatrace",
+    "mcp",
+    "model-context-protocol",
+    "server"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "inspector",
+  "name": "inspector",
+  "description": "Test & Debug MCP servers, ChatGPT apps, and MCP Apps (ext-apps)",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/MCPJam/inspector",
+  "stars": 1621,
+  "owner": "MCPJam",
+  "repo": "inspector",
+  "discoveredAt": "2026-01-28T13:21:43.019Z",
+  "keywords": [
+    "chatgpt",
+    "mcp",
+    "mcp-apps",
+    "mcp-clients",
+    "mcp-tools",
+    "modelcontextprotocol",
+    "opensource"
+  ]
+}

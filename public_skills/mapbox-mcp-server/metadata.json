@@ -1,0 +1,15 @@
+{
+  "id": "mapbox-mcp-server",
+  "name": "@mapbox/mcp-server",
+  "description": "Mapbox MCP server.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/mapbox/mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/@mapbox/mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.031Z",
+  "version": "0.8.2",
+  "keywords": [
+    "mapbox",
+    "mcp"
+  ]
+}

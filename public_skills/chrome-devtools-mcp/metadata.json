@@ -1,0 +1,22 @@
+{
+  "id": "chrome-devtools-mcp",
+  "name": "chrome-devtools-mcp",
+  "description": "Chrome DevTools for coding agents",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+  "stars": 22536,
+  "owner": "ChromeDevTools",
+  "repo": "chrome-devtools-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.009Z",
+  "keywords": [
+    "browser",
+    "chrome",
+    "chrome-devtools",
+    "debugging",
+    "devtools",
+    "mcp",
+    "mcp-server",
+    "puppeteer"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "korzhovdm-brave-search-mcp-server-modelcontextprotocol",
+  "name": "korzhovdm/brave-search-mcp-server-modelcontextprotocol",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/korzhovdm/brave-search-mcp-server-modelcontextprotocol",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.062Z",
+  "pulls": 58
+}

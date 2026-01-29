@@ -1,0 +1,17 @@
+{
+  "id": "hexsleeves-tailscale-mcp-server",
+  "name": "@hexsleeves/tailscale-mcp-server",
+  "description": "A Model Context Protocol (MCP) server that provides seamless integration with Tailscale's CLI commands and REST API, enabling automated network management and monitoring through a standardized interface.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@hexsleeves/tailscale-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.037Z",
+  "version": "0.3.2",
+  "keywords": [
+    "tailscale",
+    "mcp",
+    "model context protocol",
+    "tailscale mcp",
+    "tailscale mcp server"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "mcp-framework",
+  "name": "mcp-framework",
+  "description": "A framework for writing MCP (Model Context Protocol) servers in Typescript",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/QuantGeekDev/mcp-framework",
+  "stars": 896,
+  "owner": "QuantGeekDev",
+  "repo": "mcp-framework",
+  "discoveredAt": "2026-01-28T13:21:43.022Z",
+  "keywords": [
+    "anthropic",
+    "claude",
+    "genai",
+    "llm",
+    "llms",
+    "mcp",
+    "modelcontextprotocol"
+  ]
+}

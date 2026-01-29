@@ -1,0 +1,18 @@
+{
+  "id": "langchain-mcp-adapters",
+  "name": "@langchain/mcp-adapters",
+  "description": "LangChain.js adapters for Model Context Protocol (MCP)",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+ssh://git@github.com/langchain-ai/langchainjs.git",
+  "npmUrl": "https://www.npmjs.com/package/@langchain/mcp-adapters",
+  "discoveredAt": "2026-01-28T13:21:43.052Z",
+  "version": "1.1.2",
+  "keywords": [
+    "langchain",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "tools"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "claude-code-mastery",
+  "name": "claude-code-mastery",
+  "description": "The complete guide to Claude Code: CLAUDE.md, hooks, skills, MCP servers, and commands",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/TheDecipherist/claude-code-mastery",
+  "stars": 250,
+  "owner": "TheDecipherist",
+  "repo": "claude-code-mastery",
+  "discoveredAt": "2026-01-28T13:21:43.025Z",
+  "keywords": [
+    "ai-agents",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "claude-md",
+    "coding-assistant",
+    "developer-tools",
+    "llm",
+    "mcp-servers"
+  ]
+}

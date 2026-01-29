@@ -1,0 +1,28 @@
+{
+  "id": "ui-tars-desktop",
+  "name": "UI-TARS-desktop",
+  "description": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/bytedance/UI-TARS-desktop",
+  "stars": 24953,
+  "owner": "bytedance",
+  "repo": "UI-TARS-desktop",
+  "discoveredAt": "2026-01-28T13:21:43.009Z",
+  "keywords": [
+    "agent",
+    "agent-tars",
+    "browser-use",
+    "computer-use",
+    "cowork",
+    "gui-agent",
+    "gui-operator",
+    "mcp",
+    "mcp-server",
+    "multimodal",
+    "tars",
+    "ui-tars",
+    "vision",
+    "vlm"
+  ]
+}

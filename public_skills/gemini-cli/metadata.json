@@ -1,0 +1,21 @@
+{
+  "id": "gemini-cli",
+  "name": "gemini-cli",
+  "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/google-gemini/gemini-cli",
+  "stars": 92824,
+  "owner": "google-gemini",
+  "repo": "gemini-cli",
+  "discoveredAt": "2026-01-28T13:21:43.001Z",
+  "keywords": [
+    "ai",
+    "ai-agents",
+    "cli",
+    "gemini",
+    "gemini-api",
+    "mcp-client",
+    "mcp-server"
+  ]
+}

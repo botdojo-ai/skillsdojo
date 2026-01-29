@@ -1,0 +1,24 @@
+{
+  "id": "exa-mcp-server",
+  "name": "exa-mcp-server",
+  "description": "A Model Context Protocol server with Exa for web search and web crawling. Provides real-time web searches with configurable tool selection, allowing users to enable or disable specific search capabilities. Supports customizable result counts, live crawlin",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/exa-labs/exa-mcp-server.git",
+  "npmUrl": "https://www.npmjs.com/package/exa-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.051Z",
+  "version": "3.1.7",
+  "keywords": [
+    "mcp",
+    "search mcp",
+    "model context protocol",
+    "exa",
+    "search",
+    "websearch",
+    "claude",
+    "ai",
+    "research",
+    "papers",
+    "people"
+  ]
+}

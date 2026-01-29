@@ -1,0 +1,11 @@
+{
+  "id": "korzhovdm-aws-knowledge-base-retrieval-modelcontextprotocol-mcp-server",
+  "name": "korzhovdm/aws-knowledge-base-retrieval-modelcontextprotocol-mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/korzhovdm/aws-knowledge-base-retrieval-modelcontextprotocol-mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.062Z",
+  "pulls": 110
+}

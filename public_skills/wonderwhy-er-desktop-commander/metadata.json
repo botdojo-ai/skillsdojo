@@ -1,0 +1,29 @@
+{
+  "id": "wonderwhy-er-desktop-commander",
+  "name": "@wonderwhy-er/desktop-commander",
+  "description": "MCP server for terminal operations and file editing",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@wonderwhy-er/desktop-commander",
+  "discoveredAt": "2026-01-28T13:21:43.050Z",
+  "version": "0.2.32",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "terminal",
+    "claude",
+    "ai",
+    "command-line",
+    "process-management",
+    "file-editing",
+    "code-editing",
+    "diff",
+    "patch",
+    "block-editing",
+    "file-system",
+    "text-manipulation",
+    "code-modification",
+    "surgical-edits",
+    "file-operations"
+  ]
+}

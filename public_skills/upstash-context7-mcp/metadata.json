@@ -1,0 +1,20 @@
+{
+  "id": "upstash-context7-mcp",
+  "name": "@upstash/context7-mcp",
+  "description": "MCP server for Context7",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/upstash/context7.git",
+  "npmUrl": "https://www.npmjs.com/package/@upstash/context7-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.030Z",
+  "version": "2.1.0",
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp",
+    "context7",
+    "vibe-coding",
+    "developer tools",
+    "documentation",
+    "context"
+  ]
+}

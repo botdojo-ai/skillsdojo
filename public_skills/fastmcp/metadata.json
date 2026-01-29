@@ -1,0 +1,23 @@
+{
+  "id": "fastmcp",
+  "name": "fastmcp",
+  "description": "🚀 The fast, Pythonic way to build MCP servers and clients",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/jlowin/fastmcp",
+  "stars": 22404,
+  "owner": "jlowin",
+  "repo": "fastmcp",
+  "discoveredAt": "2026-01-28T13:21:43.009Z",
+  "keywords": [
+    "agents",
+    "fastmcp",
+    "llms",
+    "mcp",
+    "mcp-clients",
+    "mcp-servers",
+    "mcp-tools",
+    "model-context-protocol",
+    "python"
+  ]
+}

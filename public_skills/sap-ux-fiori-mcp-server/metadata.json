@@ -1,0 +1,18 @@
+{
+  "id": "sap-ux-fiori-mcp-server",
+  "name": "@sap-ux/fiori-mcp-server",
+  "description": "SAP Fiori - Model Context Protocol (MCP) server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/SAP/open-ux-tools.git",
+  "npmUrl": "https://www.npmjs.com/package/@sap-ux/fiori-mcp-server",
+  "discoveredAt": "2026-01-28T13:21:43.031Z",
+  "version": "0.6.16",
+  "keywords": [
+    "SAP Fiori tools",
+    "SAP Fiori elements",
+    "SAP Fiori freestyle",
+    "MCP",
+    "AI"
+  ]
+}

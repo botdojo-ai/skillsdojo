@@ -1,0 +1,11 @@
+{
+  "id": "modelcontextprotocol-inspector-client",
+  "name": "@modelcontextprotocol/inspector-client",
+  "description": "Client-side application for the Model Context Protocol inspector",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/inspector-client",
+  "discoveredAt": "2026-01-28T13:21:43.044Z",
+  "version": "0.19.0",
+  "keywords": []
+}

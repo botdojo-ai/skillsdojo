@@ -1,0 +1,11 @@
+{
+  "id": "modelcontextprotocol-inspector-cli",
+  "name": "@modelcontextprotocol/inspector-cli",
+  "description": "CLI for the Model Context Protocol inspector",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@modelcontextprotocol/inspector-cli",
+  "discoveredAt": "2026-01-28T13:21:43.045Z",
+  "version": "0.19.0",
+  "keywords": []
+}

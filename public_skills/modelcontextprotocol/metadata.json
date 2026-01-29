@@ -1,0 +1,13 @@
+{
+  "id": "modelcontextprotocol",
+  "name": "modelcontextprotocol",
+  "description": "The official MCP server implementation for the Perplexity API Platform",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/perplexityai/modelcontextprotocol",
+  "stars": 1901,
+  "owner": "perplexityai",
+  "repo": "modelcontextprotocol",
+  "discoveredAt": "2026-01-28T13:21:43.019Z",
+  "keywords": []
+}

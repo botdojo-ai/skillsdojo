@@ -1,0 +1,23 @@
+{
+  "id": "git-mcp",
+  "name": "git-mcp",
+  "description": "Put an end to code hallucinations! GitMCP is a free, open-source, remote MCP server for any GitHub project",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/idosal/git-mcp",
+  "stars": 7480,
+  "owner": "idosal",
+  "repo": "git-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.013Z",
+  "keywords": [
+    "agentic-ai",
+    "agents",
+    "ai",
+    "claude",
+    "copilot",
+    "cursor",
+    "git",
+    "llm",
+    "mcp"
+  ]
+}

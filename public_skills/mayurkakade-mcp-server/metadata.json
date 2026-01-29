@@ -1,0 +1,11 @@
+{
+  "id": "mayurkakade-mcp-server",
+  "name": "mayurkakade/mcp-server",
+  "description": "Advanced SimpleCheckList with MCP server and SQLite database",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/mayurkakade/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.058Z",
+  "pulls": 2031
+}

@@ -1,0 +1,11 @@
+{
+  "id": "anthropic-ai-mcpb",
+  "name": "@anthropic-ai/mcpb",
+  "description": "Tools for building MCP Bundles",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@anthropic-ai/mcpb",
+  "discoveredAt": "2026-01-28T13:21:43.047Z",
+  "version": "2.1.2",
+  "keywords": []
+}

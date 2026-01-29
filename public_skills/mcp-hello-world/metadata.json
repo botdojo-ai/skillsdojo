@@ -1,0 +1,16 @@
+{
+  "id": "mcp-hello-world",
+  "name": "mcp-hello-world",
+  "description": "A simple Hello World MCP server",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/lobehub/mcp-hello-world.git",
+  "npmUrl": "https://www.npmjs.com/package/mcp-hello-world",
+  "discoveredAt": "2026-01-28T13:21:43.036Z",
+  "version": "1.1.2",
+  "keywords": [
+    "lobehub",
+    "model-context-protocol",
+    "sdk"
+  ]
+}

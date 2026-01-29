@@ -1,0 +1,22 @@
+{
+  "id": "claude-mcp",
+  "name": "claude-mcp",
+  "description": "An MCP server that allows AI tools to interact with Claude Code programmatically with session continuity and async execution support.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/ebeloded/claude-mcp.git",
+  "npmUrl": "https://www.npmjs.com/package/claude-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.046Z",
+  "version": "2.4.1",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "ai",
+    "llm",
+    "agent",
+    "async",
+    "conversation-continuity",
+    "code-analysis"
+  ]
+}

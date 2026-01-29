@@ -1,0 +1,11 @@
+{
+  "id": "mcp-monorepo-weather",
+  "name": "@mcp-monorepo/weather",
+  "description": "Weather MCP tools (geocoding, weather-by-coords) for ModelContextProtocol.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@mcp-monorepo/weather",
+  "discoveredAt": "2026-01-28T13:21:43.040Z",
+  "version": "1.2.0",
+  "keywords": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "workers-mcp",
+  "name": "workers-mcp",
+  "description": "MCP transport to your own Cloudflare Worker",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/workers-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.051Z",
+  "version": "0.0.13",
+  "keywords": []
+}

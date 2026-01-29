@@ -1,0 +1,11 @@
+{
+  "id": "kasmweb-claude-code",
+  "name": "kasmweb/claude-code",
+  "description": "Claude Code CLI - Anthropic's CLI for interacting with Claude AI models from your terminal",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/kasmweb/claude-code",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.064Z",
+  "pulls": 974
+}

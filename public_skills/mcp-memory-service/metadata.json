@@ -1,0 +1,33 @@
+{
+  "id": "mcp-memory-service",
+  "name": "mcp-memory-service",
+  "description": "Stop re-explaining your project to AI every session. Automatic context memory for Claude, VS Code, Cursor, and 13+ AI tools.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/doobidoo/mcp-memory-service",
+  "stars": 1226,
+  "owner": "doobidoo",
+  "repo": "mcp-memory-service",
+  "discoveredAt": "2026-01-28T13:21:43.020Z",
+  "keywords": [
+    "chroma-db",
+    "chromadb",
+    "claude",
+    "claude-code",
+    "code",
+    "knowledge",
+    "localstorage",
+    "mcp",
+    "mcp-server",
+    "memory",
+    "model-context-protocol",
+    "remotestorage-server",
+    "semantic-search",
+    "server",
+    "sqlite-vec",
+    "tag-based",
+    "time-based",
+    "vector-database",
+    "vector-storage"
+  ]
+}

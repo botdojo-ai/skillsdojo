@@ -1,0 +1,11 @@
+{
+  "id": "ref-tools-mcp",
+  "name": "ref-tools-mcp",
+  "description": "ModelContextProtocol server for Ref",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/ref-tools-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.038Z",
+  "version": "3.0.3",
+  "keywords": []
+}

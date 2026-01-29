@@ -1,0 +1,11 @@
+{
+  "id": "suranjannandigmail-mcp-server",
+  "name": "suranjannandigmail/mcp-server",
+  "description": "",
+  "source": "docker",
+  "sourceType": "mcp-image",
+  "dockerImage": "docker.io/suranjannandigmail/mcp-server",
+  "stars": 0,
+  "discoveredAt": "2026-01-28T13:21:43.057Z",
+  "pulls": 2684
+}

@@ -1,0 +1,12 @@
+{
+  "id": "winor30-mcp-server-datadog",
+  "name": "@winor30/mcp-server-datadog",
+  "description": "MCP server for interacting with Datadog API",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/winor30/mcp-server-datadog.git",
+  "npmUrl": "https://www.npmjs.com/package/@winor30/mcp-server-datadog",
+  "discoveredAt": "2026-01-28T13:21:43.035Z",
+  "version": "1.7.0",
+  "keywords": []
+}

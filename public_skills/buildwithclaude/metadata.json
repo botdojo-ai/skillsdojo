@@ -1,0 +1,25 @@
+{
+  "id": "buildwithclaude",
+  "name": "buildwithclaude",
+  "description": "A single hub to find Claude Skills, Agents, Commands, Hooks, Plugins, and Marketplace collections to extend Claude Code",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/davepoon/buildwithclaude",
+  "stars": 2323,
+  "owner": "davepoon",
+  "repo": "buildwithclaude",
+  "discoveredAt": "2026-01-28T13:21:43.017Z",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-code-commands",
+    "claude-skills",
+    "cli-tool",
+    "commands",
+    "mcp",
+    "mcp-server",
+    "mcp-tools",
+    "plugin-marketplace",
+    "subagents"
+  ]
+}

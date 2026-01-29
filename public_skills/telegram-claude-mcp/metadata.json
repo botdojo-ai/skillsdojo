@@ -1,0 +1,24 @@
+{
+  "id": "telegram-claude-mcp",
+  "name": "telegram-claude-mcp",
+  "description": "Telegram bridge for Claude CLI - bidirectional communication via tmux",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "gitUrl": "git+https://github.com/Geravant/telegram-claude.git",
+  "npmUrl": "https://www.npmjs.com/package/telegram-claude-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.046Z",
+  "version": "3.0.1",
+  "keywords": [
+    "claude",
+    "telegram",
+    "mcp",
+    "claude-code",
+    "bot",
+    "messaging",
+    "hooks",
+    "permissions",
+    "daemon",
+    "tmux",
+    "bridge"
+  ]
+}

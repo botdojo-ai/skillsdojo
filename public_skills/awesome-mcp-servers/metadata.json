@@ -1,0 +1,16 @@
+{
+  "id": "awesome-mcp-servers",
+  "name": "awesome-mcp-servers",
+  "description": "A collection of MCP servers.",
+  "source": "github",
+  "sourceType": "mcp-server",
+  "gitUrl": "https://github.com/punkpeye/awesome-mcp-servers",
+  "stars": 79860,
+  "owner": "punkpeye",
+  "repo": "awesome-mcp-servers",
+  "discoveredAt": "2026-01-28T13:21:43.002Z",
+  "keywords": [
+    "ai",
+    "mcp"
+  ]
+}

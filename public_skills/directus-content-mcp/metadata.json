@@ -1,0 +1,16 @@
+{
+  "id": "directus-content-mcp",
+  "name": "@directus/content-mcp",
+  "description": "Model Context Protocol server for Directus projects.",
+  "source": "npm",
+  "sourceType": "mcp-package",
+  "npmUrl": "https://www.npmjs.com/package/@directus/content-mcp",
+  "discoveredAt": "2026-01-28T13:21:43.050Z",
+  "version": "0.1.0",
+  "keywords": [
+    "ai",
+    "directus",
+    "mcp",
+    "modelcontextprotocol"
+  ]
+}
