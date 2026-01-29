@@ -16,7 +16,7 @@ export function CollectionTabs({
   collectionSlug,
   canEdit = false,
 }: CollectionTabsProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
   const basePath = `/${accountSlug}/${collectionSlug}`;
 
   const tabs = [

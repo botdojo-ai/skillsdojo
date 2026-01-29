@@ -29,7 +29,7 @@ interface Collection {
 
 export default function ApiKeysSettingsPage() {
   const params = useParams();
-  const accountSlug = params.account as string;
+  const accountSlug = (params?.account as string) || "";
 
   const [apiKeys, setApiKeys] = useState<ApiKeyItem[]>([]);
   const [collections, setCollections] = useState<Collection[]>([]);

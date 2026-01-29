@@ -48,9 +48,9 @@ export default function PullRequestDetailPage() {
   const [error, setError] = useState("");
   const [actionLoading, setActionLoading] = useState<"merge" | "close" | null>(null);
 
-  const accountSlug = params.account as string;
-  const collectionSlug = params.collection as string;
-  const prNumber = params.number as string;
+  const accountSlug = (params?.account as string) || "";
+  const collectionSlug = (params?.collection as string) || "";
+  const prNumber = (params?.number as string) || "";
 
   // First, fetch collection ID from slugs
   useEffect(() => {

@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export default function SettingsPage() {
   const params = useParams();
-  const accountSlug = params.account as string;
+  const accountSlug = (params?.account as string) || "";
 
   return (
     <div>

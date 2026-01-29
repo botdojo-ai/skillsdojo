@@ -22,8 +22,8 @@ export default function NewSkillPage() {
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
 
-  const accountSlug = params.account as string;
-  const collectionSlug = params.collection as string;
+  const accountSlug = (params?.account as string) || "";
+  const collectionSlug = (params?.collection as string) || "";
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {

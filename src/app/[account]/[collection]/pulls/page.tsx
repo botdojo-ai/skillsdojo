@@ -54,8 +54,8 @@ export default function PullRequestsPage() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<"open" | "merged" | "closed">("open");
 
-  const accountSlug = params.account as string;
-  const collectionSlug = params.collection as string;
+  const accountSlug = (params?.account as string) || "";
+  const collectionSlug = (params?.collection as string) || "";
 
   // First, fetch collection from slugs
   useEffect(() => {

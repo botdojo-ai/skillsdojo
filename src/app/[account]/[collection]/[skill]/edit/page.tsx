@@ -29,9 +29,9 @@ export default function SkillEditPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const accountSlug = params?.account as string | undefined;
-  const collectionSlug = params?.collection as string | undefined;
-  const skillPath = params?.skill as string | undefined;
+  const accountSlug = (params?.account as string) || "";
+  const collectionSlug = (params?.collection as string) || "";
+  const skillPath = (params?.skill as string) || "";
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -39,7 +39,7 @@ export default function SkillEditPage() {
       return;
     }
 
-    if (authLoading) return;
+    if (authLoading || !accountSlug || !collectionSlug || !skillPath) return;
 
     const fetchData = async () => {
       try {

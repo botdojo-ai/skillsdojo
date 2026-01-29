@@ -19,7 +19,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
   const { user, account, isAuthenticated, loading: authLoading } = useAuth();
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
 
-  const accountSlug = params.account as string;
+  const accountSlug = (params?.account as string) || "";
 
   useEffect(() => {
     if (!authLoading) {
