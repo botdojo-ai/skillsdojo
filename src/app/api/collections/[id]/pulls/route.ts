@@ -1,17 +1,20 @@
 export const dynamic = 'force-dynamic';
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getDataSource } from "@/lib/db/data-source";
 import { SkillCollection } from "@/entities/SkillCollection";
 import { PullRequest } from "@/entities/PullRequest";
-import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
+import { AccountMembership } from "@/entities/AccountMembership";
+import { withOptionalAuth } from "@/lib/auth/middleware";
+import { TokenPayload } from "@/lib/auth/jwt";
+import { RequestContext } from "@/lib/db/context";
 
 /**
  * GET /api/collections/[id]/pulls
  * List pull requests for a collection
  */
-export const GET = withAuth(async (
-  request: AuthenticatedRequest,
+export const GET = withOptionalAuth(async (
+  request: NextRequest & { user?: TokenPayload; context?: RequestContext },
   { params }: { params: Promise<{ id: string }> }
 ) => {
   try {
@@ -38,12 +41,30 @@ export const GET = withAuth(async (
       );
     }
 
-    // Check permission
-    if (collection.visibility === "private" && collection.accountId !== request.context.accountId) {
-      return NextResponse.json(
-        { error: "Collection not found" },
-        { status: 404 }
-      );
+    // Check permission for private collections
+    if (collection.visibility === "private") {
+      if (!request.user?.userId) {
+        return NextResponse.json(
+          { error: "Collection not found" },
+          { status: 404 }
+        );
+      }
+
+      const membershipRepo = ds.getRepository(AccountMembership);
+      const membership = await membershipRepo.findOne({
+        where: {
+          userId: request.user.userId,
+          accountId: collection.accountId,
+          archivedAt: undefined,
+        },
+      });
+
+      if (!membership) {
+        return NextResponse.json(
+          { error: "Collection not found" },
+          { status: 404 }
+        );
+      }
     }
 
     // Build query
