@@ -84,9 +84,6 @@ export function getUiResources(): UiResource[] {
       _meta: {
         ui: {
           prefersBorder: true,
-          csp: {
-            connectDomains: [],
-          },
         },
       },
     },
@@ -98,9 +95,6 @@ export function getUiResources(): UiResource[] {
       _meta: {
         ui: {
           prefersBorder: true,
-          csp: {
-            connectDomains: [],
-          },
         },
       },
     },
