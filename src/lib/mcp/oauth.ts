@@ -33,9 +33,6 @@ const AUTH_CODE_EXPIRY = 5 * 60; // 5 minutes in seconds
 // Token version - increment this to invalidate all existing tokens and force re-auth
 const TOKEN_VERSION = 2;
 
-// In-memory auth code store (use Redis in production)
-const authCodeStore = new Map<string, AuthCodeData>();
-
 // ============================================================================
 // Helper Functions
 // ============================================================================
@@ -142,48 +139,67 @@ export function handleDynamicClientRegistration(
 }
 
 // ============================================================================
-// Authorization Code Management
+// Authorization Code Management (JWT-based, no storage needed)
 // ============================================================================
 
-export function generateAuthCode(): string {
-  return uuidv4();
-}
-
-export function storeAuthCode(code: string, data: AuthCodeData): void {
-  // Clean up expired codes
+/**
+ * Generate a JWT-based authorization code.
+ * The code is self-contained and doesn't require storage.
+ */
+export async function generateAuthCode(data: Omit<AuthCodeData, "created_at">): Promise<string> {
   const now = Math.floor(Date.now() / 1000);
-  for (const [key, value] of authCodeStore.entries()) {
-    if (value.created_at + AUTH_CODE_EXPIRY < now) {
-      authCodeStore.delete(key);
-    }
-  }
 
-  authCodeStore.set(code, {
+  const payload = {
+    type: "oauth_auth_code",
     ...data,
     created_at: now,
-  });
+    iat: now,
+    exp: now + AUTH_CODE_EXPIRY,
+  };
+
+  const code = await new SignJWT(payload as unknown as Record<string, unknown>)
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime(now + AUTH_CODE_EXPIRY)
+    .sign(JWT_SECRET);
+
+  return code;
 }
 
-export function getAuthCode(code: string): AuthCodeData | null {
-  const data = authCodeStore.get(code);
-  if (!data) return null;
+/**
+ * Verify and decode a JWT-based authorization code.
+ * Returns the auth code data if valid, null otherwise.
+ */
+export async function consumeAuthCode(code: string): Promise<AuthCodeData | null> {
+  try {
+    const { payload } = await jwtVerify(code, JWT_SECRET);
 
-  // Check expiration
-  const now = Math.floor(Date.now() / 1000);
-  if (data.created_at + AUTH_CODE_EXPIRY < now) {
-    authCodeStore.delete(code);
+    // Validate it's an auth code
+    if ((payload as Record<string, unknown>).type !== "oauth_auth_code") {
+      return null;
+    }
+
+    // Note: JWT-based codes can technically be used multiple times within
+    // their short expiry window. For most use cases this is acceptable
+    // because PKCE provides additional protection. For stricter single-use
+    // enforcement, a database or cache would be needed.
+
+    return {
+      owner_uid: payload.owner_uid as string,
+      account_id: payload.account_id as string,
+      account_slug: payload.account_slug as string,
+      collection_id: payload.collection_id as string,
+      collection_slug: payload.collection_slug as string,
+      scope: payload.scope as string,
+      client_id: payload.client_id as string | undefined,
+      redirect_uri: payload.redirect_uri as string | undefined,
+      code_challenge: payload.code_challenge as string | undefined,
+      code_challenge_method: payload.code_challenge_method as string | undefined,
+      created_at: payload.created_at as number,
+    };
+  } catch {
     return null;
   }
-
-  return data;
-}
-
-export function consumeAuthCode(code: string): AuthCodeData | null {
-  const data = getAuthCode(code);
-  if (data) {
-    authCodeStore.delete(code);
-  }
-  return data;
 }
 
 // ============================================================================

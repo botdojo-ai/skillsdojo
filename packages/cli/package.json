@@ -1,12 +1,11 @@
 {
-  "name": "@skillsdojo/cli",
+  "name": "skillsd",
   "version": "0.1.0",
   "description": "SkillsDojo CLI - Manage AI agent skills from the command line",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "skillsd": "./bin/sd.js",
-    "skillsdojo": "./bin/sd.js"
+    "skillsd": "./bin/sd.js"
   },
   "scripts": {
     "build": "tsc",

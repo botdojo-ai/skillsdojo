@@ -9,7 +9,7 @@
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
-import { generateAuthCode, storeAuthCode } from "@/lib/mcp";
+import { generateAuthCode } from "@/lib/mcp";
 import { getDataSource } from "@/lib/db/data-source";
 import { Account } from "@/entities/Account";
 import { AccountMembership } from "@/entities/AccountMembership";
@@ -141,11 +141,8 @@ export async function POST(
       );
     }
 
-    // Generate authorization code
-    const code = generateAuthCode();
-
-    // Store the authorization code with all necessary data
-    storeAuthCode(code, {
+    // Generate JWT-based authorization code (no storage needed)
+    const code = await generateAuthCode({
       client_id,
       redirect_uri,
       scope,
@@ -156,7 +153,6 @@ export async function POST(
       account_slug: accountSlug,
       collection_id: collectionRecord.id,
       collection_slug: collectionSlug,
-      created_at: Math.floor(Date.now() / 1000),
     });
 
     // Build redirect URL with authorization code

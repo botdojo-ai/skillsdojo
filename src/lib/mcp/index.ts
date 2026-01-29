@@ -18,8 +18,6 @@ export {
   buildOAuthServerMetadata,
   handleDynamicClientRegistration,
   generateAuthCode,
-  storeAuthCode,
-  getAuthCode,
   consumeAuthCode,
   verifyCodeChallenge,
   generateMCPAccessToken,
