@@ -1056,10 +1056,16 @@ async function createPullRequestUi(
   const ds = await getDataSource();
   const gitBackend = new DatabaseGitBackend(ds, ctx.collectionId);
 
-  // Get list of branches for the UI
+  // Get list of branches for the UI by filtering refs
   let branches: string[] = [];
   try {
-    branches = await gitBackend.listBranches();
+    const refs = await gitBackend.listRefs();
+    branches = refs
+      .filter(r => r.refName.startsWith("refs/heads/"))
+      .map(r => r.refName.replace("refs/heads/", ""));
+    if (branches.length === 0) {
+      branches = ["main"];
+    }
   } catch {
     branches = ["main"];
   }
