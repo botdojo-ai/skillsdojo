@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from "next/server";
 import { getDataSource } from "@/lib/db/data-source";
 import { Skill } from "@/entities/Skill";

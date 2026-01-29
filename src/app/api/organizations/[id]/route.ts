@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from "next/server";
 import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
 import { organizationService } from "@/services/organization.service";

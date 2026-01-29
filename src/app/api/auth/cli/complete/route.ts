@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from "next/server";
 import { cliAuthSessions } from "@/lib/auth/cli-sessions";
 import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
