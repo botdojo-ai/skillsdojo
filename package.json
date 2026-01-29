@@ -2,6 +2,9 @@
   "name": "skills-dojo",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev -p 3354",
     "build": "next build",
@@ -30,11 +33,11 @@
     "isomorphic-git": "^1.36.3",
     "jose": "^6.1.3",
     "lucide-react": "^0.563.0",
-    "next": "^14.2.35",
+    "next": "^16.1.6",
     "pako": "^2.1.0",
     "pg": "^8.17.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "reflect-metadata": "^0.2.2",
     "tailwind-merge": "^3.4.0",
     "typeorm": "^0.3.28",
@@ -49,7 +52,7 @@
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "^16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
