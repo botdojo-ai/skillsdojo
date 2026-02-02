@@ -134,7 +134,7 @@ export function UseSkillButton({ skillPath, skillName, collectionId }: UseSkillB
       <DialogTrigger asChild>
         <Button className="gap-2 bg-green-600 hover:bg-green-700 text-white">
           <Plus className="h-4 w-4" />
-          Use This Skill
+          Copy this Skill
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

@@ -174,29 +174,37 @@ skillsd status`}</code>
           </Card>
         </section>
 
-        {/* Search skills.sh */}
+        {/* Adding Skills */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <Search className="h-6 w-6" />
-            Finding Skills
+            Adding Skills
           </h2>
           <Card>
-            <CardContent className="pt-6 space-y-4">
+            <CardContent className="pt-6 space-y-6">
               <div>
-                <h3 className="font-medium mb-2">Search skills.sh</h3>
+                <h3 className="font-medium mb-2">From skills.sh (public)</h3>
                 <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
-                  <code>{`# Interactive search
-npx skills find
+                  <code>{`# Search for skills
+npx skills find "code review"
 
-# Search with query
-npx skills find "code review"`}</code>
+# Add a skill (owner/repo@skill format)
+skillsd add owner/repo@skill-name -y`}</code>
                 </pre>
               </div>
               <div>
-                <h3 className="font-medium mb-2">List skills from a repository</h3>
+                <h3 className="font-medium mb-2">From SkillsDojo (private)</h3>
                 <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
-                  <code>npx skills add owner/repo -l</code>
+                  <code>{`# Add from your private collection (account/collection/skill format)
+skillsd add myteam/shared-skills/my-skill -y
+
+# List skill info without installing
+skillsd add myteam/shared-skills/my-skill -l`}</code>
                 </pre>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Requires authentication. The skill is downloaded and installed to{" "}
+                  <code className="bg-background px-1 rounded">.agents/skills/</code>.
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -229,6 +237,10 @@ npx skills find "code review"`}</code>
                       <td className="py-2 font-sans">Link directory to collection</td>
                     </tr>
                     <tr className="border-b">
+                      <td className="py-2 pr-4"><code>skillsd add &lt;source&gt;</code></td>
+                      <td className="py-2 font-sans">Add skill from skills.sh or SkillsDojo</td>
+                    </tr>
+                    <tr className="border-b">
                       <td className="py-2 pr-4"><code>skillsd clone &lt;collection&gt;</code></td>
                       <td className="py-2 font-sans">Clone a collection locally</td>
                     </tr>
@@ -241,16 +253,16 @@ npx skills find "code review"`}</code>
                       <td className="py-2 font-sans">Push changes as PR</td>
                     </tr>
                     <tr className="border-b">
+                      <td className="py-2 pr-4"><code>skillsd pr list</code></td>
+                      <td className="py-2 font-sans">List pull requests</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-2 pr-4"><code>skillsd pr merge &lt;number&gt;</code></td>
+                      <td className="py-2 font-sans">Merge a pull request</td>
+                    </tr>
+                    <tr className="border-b">
                       <td className="py-2 pr-4"><code>skillsd collection list</code></td>
                       <td className="py-2 font-sans">List your collections</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2 pr-4"><code>skillsd collection create</code></td>
-                      <td className="py-2 font-sans">Create new collection</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2 pr-4"><code>skillsd skill list</code></td>
-                      <td className="py-2 font-sans">List skills in collection</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2 pr-4"><code>skillsd download</code></td>

@@ -159,56 +159,57 @@ export default async function AccountPage({ params }: PageProps) {
                 )}
               </div>
               {collections.map((collection) => (
-                <Card key={collection.id} className="hover:shadow-md transition-shadow">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-lg">
-                          <Link
-                            href={`/${accountSlug}/${collection.slug}`}
-                            className="hover:underline"
-                          >
+                <Link
+                  key={collection.id}
+                  href={`/${accountSlug}/${collection.slug}`}
+                  className="block"
+                >
+                  <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <CardTitle className="text-lg hover:underline">
                             {collection.name}
-                          </Link>
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground font-mono">
-                          {accountSlug}/{collection.slug}
-                        </p>
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground font-mono">
+                            {accountSlug}/{collection.slug}
+                          </p>
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-muted">
+                          {collection.visibility === "public" && <Globe className="h-3 w-3" />}
+                          {collection.visibility === "private" && <Lock className="h-3 w-3" />}
+                          {collection.visibility === "unlisted" && <EyeOff className="h-3 w-3" />}
+                          {collection.visibility}
+                        </span>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-muted">
-                        {collection.visibility === "public" && <Globe className="h-3 w-3" />}
-                        {collection.visibility === "private" && <Lock className="h-3 w-3" />}
-                        {collection.visibility === "unlisted" && <EyeOff className="h-3 w-3" />}
-                        {collection.visibility}
-                      </span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    {collection.description && (
-                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                        {collection.description}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Code className="h-3 w-3" />
-                        {collection.skillCount} skill{collection.skillCount !== 1 ? "s" : ""}
-                      </span>
-                      {collection.starCount > 0 && (
-                        <span className="flex items-center gap-1">
-                          <Star className="h-3 w-3" />
-                          {collection.starCount}
-                        </span>
+                    </CardHeader>
+                    <CardContent>
+                      {collection.description && (
+                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                          {collection.description}
+                        </p>
                       )}
-                      {collection.forkCount > 0 && (
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <GitFork className="h-3 w-3" />
-                          {collection.forkCount}
+                          <Code className="h-3 w-3" />
+                          {collection.skillCount} skill{collection.skillCount !== 1 ? "s" : ""}
                         </span>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
+                        {collection.starCount > 0 && (
+                          <span className="flex items-center gap-1">
+                            <Star className="h-3 w-3" />
+                            {collection.starCount}
+                          </span>
+                        )}
+                        {collection.forkCount > 0 && (
+                          <span className="flex items-center gap-1">
+                            <GitFork className="h-3 w-3" />
+                            {collection.forkCount}
+                          </span>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           ) : (

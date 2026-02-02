@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken, generateAccessToken } from "@/lib/auth/jwt";
+import { verifyToken, generateAccessToken, generateRefreshToken } from "@/lib/auth/jwt";
 import { authService } from "@/services/auth.service";
 
 export async function POST(request: NextRequest) {
@@ -40,12 +40,18 @@ export async function POST(request: NextRequest) {
     const accounts = await authService.getUserAccounts(payload.userId);
     const account = accounts[0]; // Default to first account
 
-    // Generate new access token
-    const accessToken = await generateAccessToken({
-      userId: user.id,
-      email: user.email,
-      accountId: account?.id,
-    });
+    // Generate new access token and rotate refresh token
+    const [accessToken, newRefreshToken] = await Promise.all([
+      generateAccessToken({
+        userId: user.id,
+        email: user.email,
+        accountId: account?.id,
+      }),
+      generateRefreshToken({
+        userId: user.id,
+        email: user.email,
+      }),
+    ]);
 
     const response = NextResponse.json({
       accessToken,
@@ -72,6 +78,15 @@ export async function POST(request: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 30 * 24 * 60 * 60, // 30 days
+      path: "/",
+    });
+
+    // Rotate refresh token to extend session and improve security
+    response.cookies.set("refresh_token", newRefreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 90 * 24 * 60 * 60, // 90 days
       path: "/",
     });
 

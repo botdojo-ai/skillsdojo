@@ -16,7 +16,7 @@ const program = new Command();
 program
     .name('skillsd')
     .description('SkillsDojo CLI - Manage AI agent skills')
-    .version('0.1.0');
+    .version('1.2.0');
 // =============================================================================
 // Skills CLI pass-through commands (uses npx skills under the hood)
 // =============================================================================
