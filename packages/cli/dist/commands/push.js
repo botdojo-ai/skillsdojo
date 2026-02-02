@@ -7,7 +7,7 @@ import { join } from 'path';
 import { findWorkspaceRoot, getWorkspaceConfig, getWorkspaceIndex, } from '../lib/config.js';
 import { api } from '../lib/api.js';
 import { requireAuth } from '../lib/auth.js';
-import { getWorkspaceChanges } from './status.js';
+import { getWorkspaceChanges, getSkillsDir } from './status.js';
 export const pushCommand = new Command('push')
     .description('Push local changes and create a pull request')
     .option('-t, --title <title>', 'Pull request title')
@@ -74,6 +74,7 @@ export const pushCommand = new Command('push')
     }
     const spinner = ora('Creating pull request...').start();
     // Build changes array for API
+    const skillsDir = getSkillsDir(workspaceRoot);
     const apiChanges = changes.map((change) => {
         const result = {
             path: change.path,
@@ -81,7 +82,7 @@ export const pushCommand = new Command('push')
         };
         // Include content for new and modified files
         if (change.status !== 'deleted') {
-            const fullPath = join(workspaceRoot, change.path);
+            const fullPath = join(skillsDir, change.path);
             if (existsSync(fullPath)) {
                 result.content = readFileSync(fullPath, 'utf-8');
             }
@@ -103,7 +104,7 @@ export const pushCommand = new Command('push')
     const pr = response.data.pullRequest;
     spinner.succeed(`Created PR #${pr.number}: ${title}`);
     console.log();
-    console.log(chalk.cyan(`${config.remote.url}/${config.remote.account}/${config.remote.collection}/pull/${pr.number}`));
+    console.log(chalk.cyan(`${config.remote.url}/pulls/${pr.number}`));
 });
 function generateDefaultTitle(changes) {
     if (changes.length === 1) {

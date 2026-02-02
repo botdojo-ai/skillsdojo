@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { getDataSource } from "@/lib/db/data-source";
 import { SkillCollection } from "@/entities/SkillCollection";
 import { PullRequest } from "@/entities/PullRequest";
+import { AccountMembership } from "@/entities/AccountMembership";
 import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
 import { DatabaseGitBackend } from "@/lib/git/db-backend";
 
@@ -44,10 +45,27 @@ export const POST = withAuth(async (
       );
     }
 
-    // Check permission (must be account member)
-    if (collection.accountId !== request.context.accountId) {
+    // Check permission - must be a member of the account
+    const membershipRepo = ds.getRepository(AccountMembership);
+    const membership = await membershipRepo.findOne({
+      where: {
+        userId: request.context.userId,
+        accountId: collection.accountId,
+        archivedAt: undefined,
+      },
+    });
+
+    if (!membership) {
       return NextResponse.json(
         { error: "Permission denied" },
+        { status: 403 }
+      );
+    }
+
+    // Viewers cannot submit changes
+    if (membership.role === "viewer") {
+      return NextResponse.json(
+        { error: "Viewers cannot submit changes" },
         { status: 403 }
       );
     }

@@ -40,6 +40,16 @@ export abstract class BaseService<T extends BaseEntity> {
   }
 
   /**
+   * Create a query builder WITHOUT account scoping (for cross-account read operations).
+   * Use this for viewing public content that may belong to other accounts.
+   */
+  protected unscopedQuery(alias: string): SelectQueryBuilder<T> {
+    return this.repo
+      .createQueryBuilder(alias)
+      .where(`${alias}.archivedAt IS NULL`);
+  }
+
+  /**
    * Find all records (optionally including archived)
    */
   async findAll(options?: { includeArchived?: boolean }): Promise<T[]> {

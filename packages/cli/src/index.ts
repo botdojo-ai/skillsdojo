@@ -5,8 +5,14 @@ import chalk from 'chalk';
 import { spawn } from 'child_process';
 import { authCommand } from './commands/auth.js';
 import { collectionCommand } from './commands/collection.js';
+import { skillCommand } from './commands/skill.js';
+import { initCommand } from './commands/init.js';
+import { cloneCommand } from './commands/clone.js';
+import { statusCommand } from './commands/status.js';
 import { pushCommand } from './commands/push.js';
 import { prCommand } from './commands/pr.js';
+import { downloadCommand } from './commands/download.js';
+import { addSkillFromDojo } from './commands/add-skill.js';
 
 const program = new Command();
 
@@ -39,10 +45,24 @@ function passToSkills(args: string[]) {
   });
 }
 
-// Add command - pass through to skills CLI
+/**
+ * Check if source is a SkillsDojo path (account/collection/skill)
+ * vs a skills.sh path (owner/repo@skill or URL)
+ */
+function isDojoPath(source: string): boolean {
+  // URLs are not dojo paths
+  if (source.includes('://') || source.startsWith('http')) return false;
+  // Contains @ means it's a skills.sh path (owner/repo@skill)
+  if (source.includes('@')) return false;
+  // Must have exactly 3 parts: account/collection/skill
+  const parts = source.split('/');
+  return parts.length === 3 && parts.every(p => p.length > 0);
+}
+
+// Add command - handles both skills.sh and SkillsDojo
 program
   .command('add <source>')
-  .description('Add skills from a package or URL')
+  .description('Add skills from skills.sh (owner/repo@skill) or SkillsDojo (account/collection/skill)')
   .option('-g, --global', 'Install globally (user-level)')
   .option('-a, --agent <agents...>', 'Install to specific agents')
   .option('-s, --skill <skills...>', 'Install specific skills')
@@ -50,7 +70,20 @@ program
   .option('-y, --yes', 'Skip confirmation prompts')
   .option('--all', 'Install all skills to all agents')
   .allowUnknownOption()
-  .action((source, options, command) => {
+  .action(async (source, options, command) => {
+    // Check if this is a SkillsDojo path
+    if (isDojoPath(source)) {
+      const [account, collection, skill] = source.split('/');
+      await addSkillFromDojo(account, collection, skill, {
+        global: options.global,
+        agents: options.agent,
+        list: options.list,
+        yes: options.yes,
+      });
+      return;
+    }
+
+    // Otherwise, pass through to skills CLI
     const args = ['add', source, ...command.args.slice(1)];
     if (options.global) args.push('-g');
     if (options.agent) args.push('-a', ...options.agent);
@@ -184,11 +217,26 @@ program.addCommand(authCommand);
 // Collection commands
 program.addCommand(collectionCommand);
 
+// Skill commands
+program.addCommand(skillCommand);
+
+// Link command (connect current dir to collection)
+program.addCommand(initCommand);
+
+// Clone command (download collection locally)
+program.addCommand(cloneCommand);
+
+// Status command (show local changes)
+program.addCommand(statusCommand);
+
 // Push command (for contributing to SkillsDojo)
 program.addCommand(pushCommand);
 
 // PR commands (for managing contributions)
 program.addCommand(prCommand);
+
+// Download command (for downloading collections/skills as zip)
+program.addCommand(downloadCommand);
 
 // =============================================================================
 // Error handling

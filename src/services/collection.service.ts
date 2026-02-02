@@ -65,12 +65,31 @@ export class CollectionService extends BaseService<SkillCollection> {
   }
 
   /**
-   * Get collection by slug
+   * Get collection by slug (account-scoped - only returns user's own collections)
    */
   async findBySlug(slug: string): Promise<SkillCollection | null> {
     return this.query("collection")
       .andWhere("collection.slug = :slug", { slug: slug.toLowerCase() })
       .getOne();
+  }
+
+  /**
+   * Get any collection by ID (unscoped - for viewing public collections)
+   * Returns null if collection is private and belongs to another account.
+   */
+  async findByIdPublic(id: string): Promise<SkillCollection | null> {
+    const collection = await this.unscopedQuery("collection")
+      .andWhere("collection.id = :id", { id })
+      .getOne();
+
+    if (!collection) return null;
+
+    // Allow if user owns it or if it's public
+    if (collection.accountId === this.ctx.accountId || collection.visibility === "public") {
+      return collection;
+    }
+
+    return null;
   }
 
   /**

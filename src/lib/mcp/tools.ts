@@ -319,6 +319,89 @@ export const TOOLS: Tool[] = [
     },
   },
 
+  // Download Tools
+  {
+    name: "download_collection",
+    description: "Download the entire skill collection as a zip file. Returns a download URL that expires in 10 minutes.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        branch: {
+          type: "string",
+          description: "Branch to download from (default: main)",
+        },
+      },
+    },
+  },
+  {
+    name: "import_from_zip",
+    description: "Import skills from a zip file. The zip should contain SKILL.md files in the standard format. Creates a pull request for review by default. Requires write permission.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        zip_url: {
+          type: "string",
+          description: "URL to download the zip file from, or base64-encoded zip data with 'data:application/zip;base64,' prefix",
+        },
+        overwrite: {
+          type: "boolean",
+          description: "Overwrite existing skills (default: false)",
+        },
+        create_pull_request: {
+          type: "boolean",
+          description: "Create a pull request instead of direct commit (default: true)",
+        },
+        pr_title: {
+          type: "string",
+          description: "Pull request title (optional)",
+        },
+        pr_description: {
+          type: "string",
+          description: "Pull request description (optional)",
+        },
+      },
+      required: ["zip_url"],
+    },
+    _meta: {
+      ui: {
+        resourceUri: "ui://action-result",
+      },
+    },
+  },
+  {
+    name: "download_skills",
+    description: "Download specific skills as a zip file. Returns a download URL that expires in 10 minutes.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        skill_paths: {
+          type: "array",
+          items: { type: "string" },
+          description: "Array of skill paths to download",
+        },
+        branch: {
+          type: "string",
+          description: "Branch to download from (default: main)",
+        },
+      },
+      required: ["skill_paths"],
+    },
+  },
+  {
+    name: "export_skill",
+    description: "Export a single skill as a zip file for sharing. Returns a download URL that expires in 10 minutes.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        skill_path: {
+          type: "string",
+          description: "Path of the skill to export",
+        },
+      },
+      required: ["skill_path"],
+    },
+  },
+
   // UI variant tools - these open a UI for user verification before action
   {
     name: "create_pull_request_ui",
@@ -433,6 +516,18 @@ export async function executeTool(
 
       case "view_skill_ui":
         return await viewSkillUi(ctx, args as { skill_path: string });
+
+      case "download_collection":
+        return await downloadCollection(ctx, args as { branch?: string });
+
+      case "download_skills":
+        return await downloadSkills(ctx, args as { skill_paths: string[]; branch?: string });
+
+      case "export_skill":
+        return await exportSkill(ctx, args as { skill_path: string });
+
+      case "import_from_zip":
+        return await importFromZip(ctx, args as { zip_url: string; overwrite?: boolean; create_pull_request?: boolean; pr_title?: string; pr_description?: string });
 
       default:
         return {
@@ -1099,4 +1194,200 @@ async function viewSkillUi(
       }, null, 2),
     }],
   };
+}
+
+async function downloadCollection(
+  ctx: MCPServerContext,
+  args: { branch?: string }
+): Promise<CallToolResult> {
+  const ds = await getDataSource();
+  const { DownloadTokenService } = await import('@/services/download-token.service');
+  const tokenService = new DownloadTokenService(ds);
+
+  // Generate download token
+  const token = await tokenService.createToken({
+    userId: ctx.userId,
+    accountId: ctx.accountId,
+    collectionId: ctx.collectionId,
+    branch: args.branch || 'main',
+    expiresInMinutes: 10,
+  });
+
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3354';
+  const downloadUrl = `${baseUrl}/api/collections/${ctx.collectionId}/download/${token}`;
+  const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
+
+  return {
+    content: [{
+      type: "text",
+      text: JSON.stringify({
+        success: true,
+        downloadUrl,
+        expiresAt: expiresAt.toISOString(),
+        expiresInMinutes: 10,
+        message: "Download link generated successfully. Link expires in 10 minutes.",
+        instructions: "Click the download URL or copy it to download the collection as a zip file.",
+      }, null, 2),
+    }],
+  };
+}
+
+async function downloadSkills(
+  ctx: MCPServerContext,
+  args: { skill_paths: string[]; branch?: string }
+): Promise<CallToolResult> {
+  if (!args.skill_paths || args.skill_paths.length === 0) {
+    return {
+      content: [{ type: "text", text: "Error: skill_paths is required and must not be empty" }],
+      isError: true,
+    };
+  }
+
+  const ds = await getDataSource();
+  const skillRepo = ds.getRepository(await import('@/entities/Skill').then(m => m.Skill));
+
+  // Normalize paths
+  const normalizedPaths = args.skill_paths.map(p => p.toLowerCase());
+
+  // Verify skills exist
+  const skills = await skillRepo
+    .createQueryBuilder('skill')
+    .where('skill.collectionId = :collectionId', { collectionId: ctx.collectionId })
+    .andWhere('skill.path IN (:...paths)', { paths: normalizedPaths })
+    .andWhere('skill.archivedAt IS NULL')
+    .getMany();
+
+  if (skills.length === 0) {
+    return {
+      content: [{ type: "text", text: "Error: No skills found with the specified paths" }],
+      isError: true,
+    };
+  }
+
+  const { DownloadTokenService } = await import('@/services/download-token.service');
+  const tokenService = new DownloadTokenService(ds);
+
+  // Generate download token
+  const token = await tokenService.createToken({
+    userId: ctx.userId,
+    accountId: ctx.accountId,
+    collectionId: ctx.collectionId,
+    branch: args.branch || 'main',
+    expiresInMinutes: 10,
+  });
+
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3354';
+  const downloadUrl = `${baseUrl}/api/collections/${ctx.collectionId}/download/${token}?skills=${encodeURIComponent(skills.map(s => s.path).join(','))}`;
+  const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
+
+  return {
+    content: [{
+      type: "text",
+      text: JSON.stringify({
+        success: true,
+        downloadUrl,
+        expiresAt: expiresAt.toISOString(),
+        expiresInMinutes: 10,
+        skills: {
+          requested: args.skill_paths.length,
+          found: skills.length,
+          paths: skills.map(s => s.path),
+        },
+        message: `Download link generated for ${skills.length} skill(s). Link expires in 10 minutes.`,
+        instructions: "Click the download URL or copy it to download the selected skills as a zip file.",
+      }, null, 2),
+    }],
+  };
+}
+
+async function exportSkill(
+  ctx: MCPServerContext,
+  args: { skill_path: string }
+): Promise<CallToolResult> {
+  return downloadSkills(ctx, { skill_paths: [args.skill_path] });
+}
+
+async function importFromZip(
+  ctx: MCPServerContext,
+  args: {
+    zip_url: string;
+    overwrite?: boolean;
+    create_pull_request?: boolean;
+    pr_title?: string;
+    pr_description?: string;
+  }
+): Promise<CallToolResult> {
+  const ds = await getDataSource();
+
+  try {
+    // Download or decode zip data
+    let zipBuffer: Buffer;
+
+    if (args.zip_url.startsWith('data:application/zip;base64,')) {
+      // Base64-encoded data
+      const base64Data = args.zip_url.split(',')[1];
+      zipBuffer = Buffer.from(base64Data, 'base64');
+    } else {
+      // Download from URL
+      const response = await fetch(args.zip_url);
+      if (!response.ok) {
+        return {
+          content: [{
+            type: "text",
+            text: `Error: Failed to download zip from URL (status ${response.status})`,
+          }],
+          isError: true,
+        };
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+      zipBuffer = Buffer.from(arrayBuffer);
+    }
+
+    // Import skills
+    const { ImportService } = await import('@/services/import.service');
+    const importService = new ImportService(ds);
+
+    const result = await importService.importFromZip(
+      ctx.collectionId,
+      ctx.userId,
+      zipBuffer,
+      {
+        overwrite: args.overwrite,
+        createPullRequest: args.create_pull_request !== false,
+        prTitle: args.pr_title,
+        prDescription: args.pr_description,
+      }
+    );
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          success: result.success,
+          action: "skills_imported",
+          message: args.create_pull_request !== false
+            ? 'Skills imported successfully. Pull request created for review.'
+            : 'Skills imported and committed directly.',
+          imported: result.imported,
+          updated: result.updated,
+          failed: result.failed,
+          stats: {
+            imported: result.imported.length,
+            updated: result.updated.length,
+            failed: result.failed.length,
+            totalFiles: result.totalFiles,
+          },
+        }, null, 2),
+      }],
+    };
+  } catch (error) {
+    return {
+      content: [{
+        type: "text",
+        text: `Error importing zip: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      }],
+      isError: true,
+    };
+  }
 }

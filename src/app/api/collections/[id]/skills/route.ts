@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from "next/server";
 import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
 import { getSkillService } from "@/services/skill.service";
+import { getCollectionService } from "@/services/collection.service";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -15,6 +16,17 @@ export const GET = withAuth(async (request: AuthenticatedRequest, context: Route
   const page = parseInt(searchParams.get("page") || "1", 10);
   const limit = parseInt(searchParams.get("limit") || "50", 10);
   const query = searchParams.get("q") || "";
+
+  // Check if user has access to this collection (owns it or it's public)
+  const collectionService = await getCollectionService(request.context);
+  const collection = await collectionService.findByIdPublic(collectionId);
+
+  if (!collection) {
+    return NextResponse.json(
+      { error: "Collection not found or access denied" },
+      { status: 404 }
+    );
+  }
 
   const service = await getSkillService(request.context);
 

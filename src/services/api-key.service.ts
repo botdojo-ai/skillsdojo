@@ -363,8 +363,20 @@ export class ApiKeyService extends BaseService<ApiKey> {
   async listApiKeys(options?: {
     page?: number;
     limit?: number;
+    collectionId?: string;
   }): Promise<PaginatedResult<ApiKey>> {
     const qb = this.query("apiKey");
+
+    // If filtering by collection, join with scopes
+    if (options?.collectionId) {
+      qb.innerJoin(
+        ApiKeyScope,
+        "scope",
+        "scope.apiKeyId = apiKey.id AND scope.collectionId = :collectionId AND scope.archivedAt IS NULL",
+        { collectionId: options.collectionId }
+      );
+    }
+
     qb.orderBy("apiKey.createdAt", "DESC");
 
     const page = options?.page || 1;

@@ -293,7 +293,10 @@ export default async function SkillPage({ params }: PageProps) {
                 <SkillOwnerActions
                   accountSlug={skill.account.slug}
                   collectionSlug={skill.collection.slug}
+                  collectionId={skill.collection.id}
+                  skillId={skill.id}
                   skillPath={skill.path}
+                  skillName={skill.name}
                 />
               )}
 

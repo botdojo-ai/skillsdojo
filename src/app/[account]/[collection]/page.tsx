@@ -200,7 +200,7 @@ export default async function CollectionPage({ params }: PageProps) {
             const SourceIcon = source === "npm" ? Package : source === "docker" ? Container : Github;
 
             return (
-              <Card key={skill.id} className="hover:shadow-md transition-shadow">
+              <Card key={skill.id} className="hover:shadow-md transition-shadow relative group">
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between">
                     <div className="flex-1 min-w-0">
@@ -208,7 +208,7 @@ export default async function CollectionPage({ params }: PageProps) {
                         <CardTitle className="text-lg truncate">
                           <Link
                             href={`/${accountSlug}/${collectionSlug}/${skill.path}`}
-                            className="hover:underline"
+                            className="hover:underline after:absolute after:inset-0 after:content-['']"
                           >
                             {skill.name}
                           </Link>
@@ -232,7 +232,7 @@ export default async function CollectionPage({ params }: PageProps) {
                         href={externalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground shrink-0 ml-2"
+                        className="text-muted-foreground hover:text-foreground shrink-0 ml-2 relative z-10"
                       >
                         <ExternalLink className="h-4 w-4" />
                       </a>
@@ -245,7 +245,7 @@ export default async function CollectionPage({ params }: PageProps) {
                       {skill.description}
                     </p>
                   )}
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground relative z-10">
                     {gitUrl && (
                       <a
                         href={gitUrl}

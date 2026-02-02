@@ -1,4 +1,6 @@
 import { getApiUrl, getCredentials, saveCredentials } from './config.js';
+import { createWriteStream } from 'fs';
+import { pipeline } from 'stream/promises';
 class ApiClient {
     baseUrl;
     constructor() {
@@ -209,6 +211,41 @@ class ApiClient {
         return this.request(`/api/collections/${collectionId}/pulls/${number}/close`, {
             method: 'POST',
         });
+    }
+    // Download endpoints
+    async requestDownloadToken(collectionId, options) {
+        return this.request(`/api/collections/${collectionId}/download`, {
+            method: 'POST',
+            body: options,
+        });
+    }
+    async requestSkillsDownloadToken(collectionId, options) {
+        return this.request('/api/skills/download', {
+            method: 'POST',
+            body: {
+                collectionId,
+                ...options,
+            },
+        });
+    }
+    async downloadZip(collectionId, token, outputPath) {
+        const authHeaders = await this.getAuthHeaders();
+        const url = `${this.baseUrl}/api/collections/${collectionId}/download/${token}`;
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: authHeaders,
+        });
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ error: 'Download failed' }));
+            throw new Error(errorData.error || `Download failed with status ${response.status}`);
+        }
+        if (!response.body) {
+            throw new Error('No response body');
+        }
+        // Write to file using streams
+        const fileStream = createWriteStream(outputPath);
+        // @ts-ignore - Node.js types compatibility
+        await pipeline(response.body, fileStream);
     }
 }
 // Export singleton instance

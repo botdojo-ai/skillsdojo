@@ -24,7 +24,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  refresh: () => Promise<void>;
+  refresh: () => Promise<boolean>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -52,7 +52,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [loading, setLoading] = useState(true);
   const userRef = useRef(user);
 
-  const refresh = useCallback(async () => {
+  const clearAuth = useCallback(() => {
+    setUser(null);
+    setAccount(null);
+    // Clear any localStorage tokens that might cause stale UI
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+    }
+  }, []);
+
+  const refresh = useCallback(async (): Promise<boolean> => {
     try {
       // Try to refresh using the refresh token cookie
       const res = await fetch("/api/auth/refresh", {
@@ -64,14 +74,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const data = await res.json();
         setUser(data.user);
         setAccount(data.account);
-        return;
+        return true;
       }
     } catch {
       // Refresh failed, user is not authenticated
     }
-    setUser(null);
-    setAccount(null);
-  }, []);
+    clearAuth();
+    return false;
+  }, [clearAuth]);
 
   const checkAuth = useCallback(async () => {
     try {
@@ -89,15 +99,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       // If access token expired, try to refresh
       if (res.status === 401) {
-        await refresh();
+        const refreshed = await refresh();
+        if (!refreshed) {
+          // Auth completely failed - make sure state is cleared
+          clearAuth();
+        }
+        return;
       }
+
+      // Any other error status - clear auth
+      clearAuth();
     } catch {
-      setUser(null);
-      setAccount(null);
+      clearAuth();
     } finally {
       setLoading(false);
     }
-  }, [refresh]);
+  }, [refresh, clearAuth]);
 
   // Keep ref in sync with user state
   useEffect(() => {
@@ -107,15 +124,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     checkAuth();
 
-    // Set up periodic token refresh (every 10 minutes)
+    // Set up periodic auth check (every 30 minutes)
+    // Server-side will proactively refresh tokens > 2 hours old on any API call
+    // This is a fallback to ensure UI stays in sync if user is idle
     const refreshInterval = setInterval(() => {
       if (userRef.current) {
-        refresh();
+        checkAuth();
       }
-    }, 10 * 60 * 1000);
+    }, 30 * 60 * 1000);
 
     return () => clearInterval(refreshInterval);
-  }, [checkAuth, refresh]);
+  }, [checkAuth]);
 
   const login = async (email: string, password: string) => {
     const res = await fetch("/api/auth/login", {
@@ -142,12 +161,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         credentials: "include",
       });
     } finally {
-      setUser(null);
-      setAccount(null);
-      // Clear any localStorage tokens
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("accessToken");
-      }
+      clearAuth();
     }
   };
 

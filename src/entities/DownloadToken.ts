@@ -11,6 +11,8 @@ export class DownloadToken extends BaseEntity {
   @Index()
   token!: string;
 
+  // accountId is inherited from BaseEntity
+
   @Column("uuid")
   @Index()
   collectionId!: string;

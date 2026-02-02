@@ -13,9 +13,10 @@ export const GET = withAuth(async (request: AuthenticatedRequest) => {
     const url = new URL(request.url);
     const page = parseInt(url.searchParams.get("page") || "1");
     const limit = parseInt(url.searchParams.get("limit") || "20");
+    const collectionId = url.searchParams.get("collectionId") || undefined;
 
     const service = await getApiKeyService(request.context);
-    const result = await service.listApiKeys({ page, limit });
+    const result = await service.listApiKeys({ page, limit, collectionId });
 
     // Remove sensitive fields from response
     const safeItems = result.items.map((item) => ({

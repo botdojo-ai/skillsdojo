@@ -3,70 +3,36 @@ import chalk from 'chalk';
 import Table from 'cli-table3';
 import ora from 'ora';
 import inquirer from 'inquirer';
-import { existsSync, mkdirSync, writeFileSync, rmSync } from 'fs';
-import { join } from 'path';
+import { readFileSync, existsSync } from 'fs';
+import { basename, dirname } from 'path';
 import { api } from '../lib/api.js';
-import { findWorkspaceRoot, getWorkspaceConfig } from '../lib/config.js';
-const SKILL_TEMPLATE = `---
-name: {{name}}
-description: {{description}}
-user-invocable: true
-allowed-tools: []
----
-
-# {{displayName}}
-
-Instructions for this skill...
-`;
+import { requireAuth } from '../lib/auth.js';
 export const skillCommand = new Command('skill')
-    .description('Manage skills');
-// sdojo skill list [collection]
+    .description('Manage skills in collections');
+// skillsd skill list <collection>
 skillCommand
-    .command('list [collection]')
+    .command('list <collection>')
     .description('List skills in a collection')
     .option('-p, --page <number>', 'Page number', '1')
-    .option('-l, --limit <number>', 'Results per page', '20')
-    .option('-s, --search <query>', 'Search query')
+    .option('-l, --limit <number>', 'Results per page', '50')
     .option('--json', 'Output as JSON')
-    .action(async (collection, options) => {
-    let collectionId;
-    let collectionPath;
-    if (collection) {
-        // Collection specified as argument
-        const [accountSlug, collectionSlug] = collection.split('/');
-        if (!accountSlug || !collectionSlug) {
-            console.error(chalk.red('Invalid path. Use format: account/collection'));
-            process.exit(1);
-        }
-        const response = await api.getCollectionBySlug(accountSlug, collectionSlug);
-        if (response.error || !response.data) {
-            console.error(chalk.red(response.error?.message || 'Collection not found'));
-            process.exit(1);
-        }
-        collectionId = response.data.id;
-        collectionPath = collection;
-    }
-    else {
-        // Use current workspace
-        const workspaceRoot = findWorkspaceRoot();
-        if (!workspaceRoot) {
-            console.error(chalk.red('No collection specified and not in a workspace'));
-            console.error(chalk.gray('Either specify a collection or run from within a cloned workspace'));
-            process.exit(1);
-        }
-        const config = getWorkspaceConfig(workspaceRoot);
-        if (!config) {
-            console.error(chalk.red('Invalid workspace configuration'));
-            process.exit(1);
-        }
-        collectionId = config.remote.collectionId;
-        collectionPath = `${config.remote.account}/${config.remote.collection}`;
+    .action(async (collectionPath, options) => {
+    const [accountSlug, collectionSlug] = collectionPath.split('/');
+    if (!accountSlug || !collectionSlug) {
+        console.error(chalk.red('Invalid path. Use format: account/collection'));
+        process.exit(1);
     }
     const spinner = ora('Fetching skills...').start();
-    const response = await api.listSkills(collectionId, {
+    // Get collection first
+    const collResponse = await api.getCollectionBySlug(accountSlug, collectionSlug);
+    if (collResponse.error || !collResponse.data) {
+        spinner.fail('Collection not found');
+        console.error(chalk.red(collResponse.error?.message || 'Collection not found'));
+        process.exit(1);
+    }
+    const response = await api.listSkills(collResponse.data.id, {
         page: parseInt(options.page),
         limit: parseInt(options.limit),
-        search: options.search,
     });
     if (response.error || !response.data) {
         spinner.fail('Failed to fetch skills');
@@ -79,152 +45,181 @@ skillCommand
         console.log(JSON.stringify(response.data, null, 2));
         return;
     }
-    console.log(chalk.bold(collectionPath));
-    console.log();
     if (items.length === 0) {
-        console.log(chalk.yellow('No skills found'));
+        console.log(chalk.yellow('No skills found in this collection'));
+        console.log(chalk.gray(`Run \`skillsd skill create ${collectionPath} <path>\` to add one`));
         return;
     }
     const table = new Table({
-        head: [chalk.cyan('PATH'), chalk.cyan('NAME'), chalk.cyan('DESCRIPTION')],
+        head: [
+            chalk.cyan('PATH'),
+            chalk.cyan('NAME'),
+            chalk.cyan('DESCRIPTION'),
+        ],
         style: { head: [], border: [] },
-        colWidths: [30, 25, 40],
+        colWidths: [25, 25, 40],
         wordWrap: true,
     });
     for (const skill of items) {
         table.push([
             skill.path,
             skill.name,
-            (skill.description || '').substring(0, 80),
+            skill.description || chalk.gray('(no description)'),
         ]);
     }
+    console.log(chalk.bold(`Skills in ${collectionPath}\n`));
     console.log(table.toString());
     console.log(chalk.gray(`\nPage ${page} of ${totalPages} (${total} total)`));
 });
-// sdojo skill create <path>
+// skillsd skill create <collection> <path>
 skillCommand
-    .command('create <path>')
-    .description('Create a new skill from template')
+    .command('create <collection> [path]')
+    .description('Create a new skill in a collection')
     .option('-n, --name <name>', 'Skill name')
     .option('-d, --description <text>', 'Skill description')
-    .action(async (path, options) => {
-    const workspaceRoot = findWorkspaceRoot();
-    if (!workspaceRoot) {
-        console.error(chalk.red('Not in a SkillsDojo workspace'));
-        console.error(chalk.gray('Run `sdojo clone <account/collection>` to clone a collection first'));
+    .option('-f, --file <path>', 'Read skill content from SKILL.md file')
+    .action(async (collectionPath, skillPath, options) => {
+    requireAuth();
+    const [accountSlug, collectionSlug] = collectionPath.split('/');
+    if (!accountSlug || !collectionSlug) {
+        console.error(chalk.red('Invalid collection path. Use format: account/collection'));
         process.exit(1);
     }
-    // Normalize path
-    const normalizedPath = path.replace(/\/$/, '');
-    const skillDir = join(workspaceRoot, normalizedPath);
-    const skillFile = join(skillDir, 'SKILL.md');
-    // Check if skill already exists
-    if (existsSync(skillFile)) {
-        console.error(chalk.red(`Skill already exists at ${normalizedPath}`));
+    // Get collection first
+    const spinner = ora('Finding collection...').start();
+    const collResponse = await api.getCollectionBySlug(accountSlug, collectionSlug);
+    if (collResponse.error || !collResponse.data) {
+        spinner.fail('Collection not found');
+        console.error(chalk.red(collResponse.error?.message || 'Collection not found'));
         process.exit(1);
     }
-    // Get skill details
+    spinner.stop();
     let name = options.name;
     let description = options.description;
+    let content;
+    // If file is provided, read from it
+    if (options.file) {
+        const filePath = options.file;
+        if (!existsSync(filePath)) {
+            console.error(chalk.red(`File not found: ${filePath}`));
+            process.exit(1);
+        }
+        content = readFileSync(filePath, 'utf-8');
+        // Parse frontmatter if present
+        const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+        if (frontmatterMatch) {
+            const frontmatter = frontmatterMatch[1];
+            const nameMatch = frontmatter.match(/^name:\s*(.+)$/m);
+            const descMatch = frontmatter.match(/^description:\s*(.+)$/m);
+            if (nameMatch && !name)
+                name = nameMatch[1].trim();
+            if (descMatch && !description)
+                description = descMatch[1].trim();
+        }
+        // Derive skill path from file path if not provided
+        if (!skillPath) {
+            const dir = dirname(filePath);
+            skillPath = basename(dir);
+            if (skillPath === '.' || skillPath === '') {
+                skillPath = basename(filePath, '.md').toLowerCase().replace(/skill\.?/gi, '').replace(/\s+/g, '-') || 'new-skill';
+            }
+        }
+    }
+    // Interactive prompts if needed
+    if (!skillPath) {
+        const answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'path',
+                message: 'Skill path (e.g., my-skill):',
+                validate: (input) => {
+                    if (!input)
+                        return 'Path is required';
+                    if (!/^[a-z0-9][a-z0-9-/]*[a-z0-9]$/.test(input) && input.length > 1) {
+                        return 'Path must be lowercase alphanumeric with hyphens';
+                    }
+                    return true;
+                },
+            },
+        ]);
+        skillPath = answers.path;
+    }
     if (!name) {
         const answers = await inquirer.prompt([
             {
                 type: 'input',
                 name: 'name',
                 message: 'Skill name:',
-                default: normalizedPath.split('/').pop(),
-                validate: (input) => input.trim().length > 0 || 'Name is required',
-            },
-            {
-                type: 'input',
-                name: 'description',
-                message: 'Description:',
+                default: skillPath.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+                validate: (input) => input ? true : 'Name is required',
             },
         ]);
         name = answers.name;
-        description = answers.description;
     }
-    // Create directory
-    mkdirSync(skillDir, { recursive: true });
-    // Generate SKILL.md content
-    const displayName = name
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    const content = SKILL_TEMPLATE
-        .replace(/\{\{name\}\}/g, name)
-        .replace(/\{\{displayName\}\}/g, displayName)
-        .replace(/\{\{description\}\}/g, description || 'TODO: Add description');
-    // Write SKILL.md
-    writeFileSync(skillFile, content, 'utf-8');
-    console.log(chalk.green(`Created skill at ${normalizedPath}/SKILL.md`));
-    console.log();
-    console.log(chalk.gray('Edit the skill file, then run `sdojo push` to submit changes'));
-});
-// sdojo skill show <path>
-skillCommand
-    .command('show <path>')
-    .description('Show skill details')
-    .option('--json', 'Output as JSON')
-    .action(async (path, options) => {
-    // Check if we're in a workspace
-    const workspaceRoot = findWorkspaceRoot();
-    if (workspaceRoot) {
-        // Show local skill
-        const skillFile = join(workspaceRoot, path, 'SKILL.md');
-        if (existsSync(skillFile)) {
-            const { readFileSync } = await import('fs');
-            const content = readFileSync(skillFile, 'utf-8');
-            if (options.json) {
-                // Parse YAML frontmatter
-                const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-                let metadata = {};
-                if (frontmatterMatch) {
-                    const yaml = frontmatterMatch[1];
-                    // Simple YAML parsing (key: value)
-                    for (const line of yaml.split('\n')) {
-                        const match = line.match(/^(\w[\w-]*): (.*)$/);
-                        if (match) {
-                            metadata[match[1]] = match[2];
-                        }
-                    }
-                }
-                console.log(JSON.stringify({ path, content, metadata }, null, 2));
-            }
-            else {
-                console.log(chalk.bold(path));
-                console.log(chalk.gray('─'.repeat(60)));
-                console.log(content);
-            }
-            return;
-        }
+    if (!description) {
+        const answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'description',
+                message: 'Description (optional):',
+            },
+        ]);
+        description = answers.description || undefined;
     }
-    console.error(chalk.red(`Skill not found at ${path}`));
-    process.exit(1);
+    const createSpinner = ora('Creating skill...').start();
+    const response = await api.createSkill(collResponse.data.id, {
+        path: skillPath,
+        name,
+        description,
+        content: content || '',
+    });
+    if (response.error || !response.data) {
+        createSpinner.fail('Failed to create skill');
+        console.error(chalk.red(response.error?.message || 'Unknown error'));
+        process.exit(1);
+    }
+    createSpinner.succeed(`Created skill ${chalk.green(skillPath)} in ${collectionPath}`);
 });
-// sdojo skill delete <path>
+// skillsd skill delete <collection> <path>
 skillCommand
-    .command('delete <path>')
-    .description('Delete a skill')
+    .command('delete <collection> <path>')
+    .description('Delete a skill from a collection')
     .option('-f, --force', 'Skip confirmation')
-    .action(async (path, options) => {
-    const workspaceRoot = findWorkspaceRoot();
-    if (!workspaceRoot) {
-        console.error(chalk.red('Not in a SkillsDojo workspace'));
+    .action(async (collectionPath, skillPath, options) => {
+    requireAuth();
+    const [accountSlug, collectionSlug] = collectionPath.split('/');
+    if (!accountSlug || !collectionSlug) {
+        console.error(chalk.red('Invalid collection path. Use format: account/collection'));
         process.exit(1);
     }
-    const skillDir = join(workspaceRoot, path);
-    if (!existsSync(skillDir)) {
-        console.error(chalk.red(`Skill not found at ${path}`));
+    // Get collection first
+    const spinner = ora('Finding skill...').start();
+    const collResponse = await api.getCollectionBySlug(accountSlug, collectionSlug);
+    if (collResponse.error || !collResponse.data) {
+        spinner.fail('Collection not found');
+        console.error(chalk.red(collResponse.error?.message || 'Collection not found'));
         process.exit(1);
     }
+    // List skills to find the one with matching path
+    const skillsResponse = await api.listSkills(collResponse.data.id, { limit: 100 });
+    if (skillsResponse.error || !skillsResponse.data) {
+        spinner.fail('Failed to fetch skills');
+        console.error(chalk.red(skillsResponse.error?.message || 'Unknown error'));
+        process.exit(1);
+    }
+    const skill = skillsResponse.data.items.find(s => s.path === skillPath);
+    if (!skill) {
+        spinner.fail(`Skill not found: ${skillPath}`);
+        process.exit(1);
+    }
+    spinner.stop();
     // Confirm deletion
     if (!options.force) {
         const { confirm } = await inquirer.prompt([
             {
                 type: 'confirm',
                 name: 'confirm',
-                message: `Are you sure you want to delete ${chalk.red(path)}?`,
+                message: `Are you sure you want to delete ${chalk.red(skillPath)}? This action cannot be undone.`,
                 default: false,
             },
         ]);
@@ -233,38 +228,13 @@ skillCommand
             return;
         }
     }
-    // Delete directory
-    rmSync(skillDir, { recursive: true });
-    console.log(chalk.green(`Deleted ${path}`));
-    console.log(chalk.gray('Run `sdojo push` to submit the deletion'));
-});
-// sdojo skill move <old-path> <new-path>
-skillCommand
-    .command('move <old-path> <new-path>')
-    .description('Move/rename a skill')
-    .action(async (oldPath, newPath) => {
-    const workspaceRoot = findWorkspaceRoot();
-    if (!workspaceRoot) {
-        console.error(chalk.red('Not in a SkillsDojo workspace'));
+    const deleteSpinner = ora('Deleting skill...').start();
+    const deleteResponse = await api.deleteSkill(collResponse.data.id, skill.id);
+    if (deleteResponse.error) {
+        deleteSpinner.fail('Failed to delete skill');
+        console.error(chalk.red(deleteResponse.error.message));
         process.exit(1);
     }
-    const oldDir = join(workspaceRoot, oldPath);
-    const newDir = join(workspaceRoot, newPath);
-    if (!existsSync(oldDir)) {
-        console.error(chalk.red(`Skill not found at ${oldPath}`));
-        process.exit(1);
-    }
-    if (existsSync(newDir)) {
-        console.error(chalk.red(`Skill already exists at ${newPath}`));
-        process.exit(1);
-    }
-    // Rename directory
-    const { renameSync } = await import('fs');
-    const { dirname } = await import('path');
-    // Ensure parent directory exists
-    mkdirSync(dirname(newDir), { recursive: true });
-    renameSync(oldDir, newDir);
-    console.log(chalk.green(`Moved ${oldPath} → ${newPath}`));
-    console.log(chalk.gray('Run `sdojo push` to submit the change'));
+    deleteSpinner.succeed(`Deleted ${chalk.red(skillPath)} from ${collectionPath}`);
 });
 //# sourceMappingURL=skill.js.map

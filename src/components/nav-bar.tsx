@@ -66,10 +66,10 @@ export function NavBar({ breadcrumbs }: NavBarProps) {
             </div>
           ) : (
             <Link
-              href="/skills"
+              href="/docs"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors ml-4"
             >
-              Find Skills
+              Docs
             </Link>
           )}
         </div>

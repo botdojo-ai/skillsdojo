@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken, generateAccessToken, TokenPayload } from "./jwt";
+import { verifyToken, generateAccessToken, TokenPayload, shouldRefreshToken } from "./jwt";
 import { withContext, RequestContext } from "@/lib/db/context";
 import { authService } from "@/services/auth.service";
 import { getDataSource } from "@/lib/db/data-source";
@@ -191,6 +191,15 @@ export function withAuth<T>(
         if (payload && payload.type !== "access") {
           payload = null;
         }
+
+        // Proactively refresh token if it's older than 2 hours (but still valid)
+        if (payload && shouldRefreshToken(payload)) {
+          const refreshResult = await tryRefreshToken(request);
+          if (refreshResult) {
+            payload = refreshResult.payload;
+            newAccessToken = refreshResult.newAccessToken;
+          }
+        }
       }
 
       // If access token is invalid/expired, try to refresh
@@ -234,7 +243,7 @@ export function withAuth<T>(
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
-        maxAge: 15 * 60, // 15 minutes
+        maxAge: 24 * 60 * 60, // 24 hours
         path: "/",
       });
     }
@@ -277,6 +286,15 @@ export function withOptionalAuth<T>(
         if (payload && payload.type !== "access") {
           payload = null;
         }
+
+        // Proactively refresh token if it's older than 2 hours (but still valid)
+        if (payload && shouldRefreshToken(payload)) {
+          const refreshResult = await tryRefreshToken(request);
+          if (refreshResult) {
+            payload = refreshResult.payload;
+            newAccessToken = refreshResult.newAccessToken;
+          }
+        }
       }
 
       // If access token is invalid/expired, try to refresh
@@ -312,7 +330,7 @@ export function withOptionalAuth<T>(
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
           sameSite: "lax",
-          maxAge: 15 * 60,
+          maxAge: 24 * 60 * 60, // 24 hours
           path: "/",
         });
       }

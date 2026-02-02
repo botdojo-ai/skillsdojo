@@ -1,4 +1,6 @@
 import { getApiUrl, getCredentials, saveCredentials, Credentials } from './config.js';
+import { createWriteStream } from 'fs';
+import { pipeline } from 'stream/promises';
 
 export interface ApiError {
   message: string;
@@ -353,6 +355,83 @@ class ApiClient {
     return this.request(`/api/collections/${collectionId}/pulls/${number}/close`, {
       method: 'POST',
     });
+  }
+
+  // Download endpoints
+  async requestDownloadToken(collectionId: string, options?: {
+    branch?: string;
+    expiresInMinutes?: number;
+  }): Promise<ApiResponse<{
+    downloadToken: string;
+    downloadUrl: string;
+    expiresAt: string;
+    expiresInMinutes: number;
+    estimatedSizeMB?: string;
+    collection: {
+      id: string;
+      slug: string;
+      name: string;
+    };
+  }>> {
+    return this.request(`/api/collections/${collectionId}/download`, {
+      method: 'POST',
+      body: options,
+    });
+  }
+
+  async requestSkillsDownloadToken(collectionId: string, options: {
+    skillPaths: string[];
+    branch?: string;
+    expiresInMinutes?: number;
+  }): Promise<ApiResponse<{
+    downloadToken: string;
+    downloadUrl: string;
+    expiresAt: string;
+    expiresInMinutes: number;
+    collection: {
+      id: string;
+      slug: string;
+      name: string;
+    };
+    skills: {
+      requested: number;
+      found: number;
+      foundPaths: string[];
+      notFoundPaths?: string[];
+    };
+  }>> {
+    return this.request('/api/skills/download', {
+      method: 'POST',
+      body: {
+        collectionId,
+        ...options,
+      },
+    });
+  }
+
+  async downloadZip(collectionId: string, token: string, outputPath: string): Promise<void> {
+    const authHeaders = await this.getAuthHeaders();
+    const url = `${this.baseUrl}/api/collections/${collectionId}/download/${token}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: authHeaders,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({ error: 'Download failed' })) as { error?: string };
+      throw new Error(errorData.error || `Download failed with status ${response.status}`);
+    }
+
+    if (!response.body) {
+      throw new Error('No response body');
+    }
+
+    // Write to file using streams
+    const fileStream = createWriteStream(outputPath);
+    
+    // @ts-ignore - Node.js types compatibility
+    await pipeline(response.body, fileStream);
   }
 }
 

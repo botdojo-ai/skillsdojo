@@ -90,23 +90,25 @@ export class SkillService extends BaseService<Skill> {
   }
 
   /**
-   * Get skill by collection and path
+   * Get skill by collection and path (unscoped - allows viewing public collections)
    */
   async findByPath(collectionId: string, path: string): Promise<Skill | null> {
-    return this.query("skill")
+    // Use unscopedQuery since collection visibility is checked at API level
+    return this.unscopedQuery("skill")
       .andWhere("skill.collectionId = :collectionId", { collectionId })
       .andWhere("skill.path = :path", { path: path.toLowerCase() })
       .getOne();
   }
 
   /**
-   * List skills in a collection
+   * List skills in a collection (unscoped - allows viewing public collections)
    */
   async listByCollection(
     collectionId: string,
     options?: { page?: number; limit?: number }
   ): Promise<PaginatedResult<Skill>> {
-    const qb = this.query("skill")
+    // Use unscopedQuery since collection visibility is checked at API level
+    const qb = this.unscopedQuery("skill")
       .andWhere("skill.collectionId = :collectionId", { collectionId })
       .orderBy("skill.path", "ASC");
 
@@ -126,13 +128,17 @@ export class SkillService extends BaseService<Skill> {
   }
 
   /**
-   * Search skills
+   * Search skills within a specific collection (unscoped - allows viewing public collections)
    */
   async searchSkills(
     query: string,
     options?: { collectionId?: string; page?: number; limit?: number }
   ): Promise<PaginatedResult<Skill>> {
-    const qb = this.query("skill");
+    // Use unscopedQuery when searching within a specific collection
+    // Collection visibility is checked at API level
+    const qb = options?.collectionId
+      ? this.unscopedQuery("skill")
+      : this.query("skill");
 
     if (options?.collectionId) {
       qb.andWhere("skill.collectionId = :collectionId", { collectionId: options.collectionId });

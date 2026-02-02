@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "SkillsDojo.ai",
-  description: "The home for AI agent skills",
+  description: "Move your AI agent skills between applications. Sync private skill collections across Claude Code, Cursor, and other AI agents.",
 };
 
 export default function RootLayout({

@@ -157,6 +157,43 @@ declare class ApiClient {
         allowDeletions?: boolean;
     }): Promise<ApiResponse<void>>;
     closePullRequest(collectionId: string, number: number): Promise<ApiResponse<void>>;
+    requestDownloadToken(collectionId: string, options?: {
+        branch?: string;
+        expiresInMinutes?: number;
+    }): Promise<ApiResponse<{
+        downloadToken: string;
+        downloadUrl: string;
+        expiresAt: string;
+        expiresInMinutes: number;
+        estimatedSizeMB?: string;
+        collection: {
+            id: string;
+            slug: string;
+            name: string;
+        };
+    }>>;
+    requestSkillsDownloadToken(collectionId: string, options: {
+        skillPaths: string[];
+        branch?: string;
+        expiresInMinutes?: number;
+    }): Promise<ApiResponse<{
+        downloadToken: string;
+        downloadUrl: string;
+        expiresAt: string;
+        expiresInMinutes: number;
+        collection: {
+            id: string;
+            slug: string;
+            name: string;
+        };
+        skills: {
+            requested: number;
+            found: number;
+            foundPaths: string[];
+            notFoundPaths?: string[];
+        };
+    }>>;
+    downloadZip(collectionId: string, token: string, outputPath: string): Promise<void>;
 }
 export interface Collection {
     id: string;

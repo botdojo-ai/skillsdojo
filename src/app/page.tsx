@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { NavBar } from "@/components/nav-bar";
-import { Search, Code, GitBranch, Users, Zap, Shield } from "lucide-react";
+import { Code, GitBranch, Users, Zap, Shield, FolderSync } from "lucide-react";
 
 export default function Home() {
   return (
@@ -13,36 +12,35 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-          The Home for AI Agent Skills
+          Move Your Agent Skills<br />Between Applications
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          Discover, create, and share skills for AI agents. Version control your skills with git,
-          collaborate with teams, and deploy anywhere with MCP.
+          Manage private AI agent skill collections that work with{" "}
+          <a href="https://skills.sh" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+            skills.sh
+          </a>
+          . Share skills across your team and sync them between Claude Code, Cursor, and other AI agents.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link href="/register">
             <Button size="lg" className="w-full sm:w-auto">
-              Start Building
+              Get Started
             </Button>
           </Link>
-          <Link href="/skills">
+          <Link href="/docs">
             <Button size="lg" variant="outline" className="w-full sm:w-auto">
-              <Search className="mr-2 h-4 w-4" />
-              Explore Skills
+              <Code className="mr-2 h-4 w-4" />
+              View Docs
             </Button>
           </Link>
         </div>
 
-        {/* Search Bar */}
-        <div className="max-w-xl mx-auto">
-          <form action="/skills" method="get" className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              name="q"
-              placeholder="Search public skills..."
-              className="pl-10 h-12"
-            />
-          </form>
+        {/* Quick install */}
+        <div className="max-w-md mx-auto">
+          <pre className="bg-muted p-4 rounded-lg text-left text-sm overflow-x-auto">
+            <code className="text-muted-foreground"># Install the CLI{"\n"}</code>
+            <code>npm install -g skillsd</code>
+          </pre>
         </div>
       </section>
 
@@ -51,11 +49,22 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           <Card>
             <CardHeader>
+              <FolderSync className="h-10 w-10 mb-4 text-primary" />
+              <CardTitle>Sync Between Apps</CardTitle>
+              <CardDescription>
+                Your skills work with Claude Code, Cursor, Windsurf, and any AI agent that supports skills.sh.
+                One collection, all your tools.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
               <GitBranch className="h-10 w-10 mb-4 text-primary" />
               <CardTitle>Git-Powered Version Control</CardTitle>
               <CardDescription>
-                Every skill collection is a git repository. Branch, merge, and track changes
-                with familiar workflows.
+                Every skill collection is version controlled. Track changes, create pull requests,
+                and collaborate with your team.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -65,8 +74,8 @@ export default function Home() {
               <Users className="h-10 w-10 mb-4 text-primary" />
               <CardTitle>Team Collaboration</CardTitle>
               <CardDescription>
-                Create organizations, manage teams, and control access. Review changes with
-                pull requests before merging.
+                Share skill collections with your team. Review changes with pull requests
+                before they go live.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -74,10 +83,10 @@ export default function Home() {
           <Card>
             <CardHeader>
               <Zap className="h-10 w-10 mb-4 text-primary" />
-              <CardTitle>MCP Integration</CardTitle>
+              <CardTitle>Works with skills.sh</CardTitle>
               <CardDescription>
-                Export skills as MCP servers. Connect to Claude, ChatGPT, and other AI agents
-                with a single command.
+                Use <code className="text-xs bg-muted px-1 rounded">npx skills add</code> to add community skills.
+                Push your customizations back to your private collection.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -85,10 +94,10 @@ export default function Home() {
           <Card>
             <CardHeader>
               <Code className="h-10 w-10 mb-4 text-primary" />
-              <CardTitle>Built-in Editor</CardTitle>
+              <CardTitle>CLI-First Workflow</CardTitle>
               <CardDescription>
-                Edit skills directly in the browser with Monaco editor. Syntax highlighting,
-                autocomplete, and live preview.
+                Link, status, push. A git-like workflow for managing your skills.
+                Works from any project directory.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -96,32 +105,41 @@ export default function Home() {
           <Card>
             <CardHeader>
               <Shield className="h-10 w-10 mb-4 text-primary" />
-              <CardTitle>Access Control</CardTitle>
+              <CardTitle>Private by Default</CardTitle>
               <CardDescription>
-                Fine-grained permissions for teams and API keys. Control who can read, write,
-                or admin your collections.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <Search className="h-10 w-10 mb-4 text-primary" />
-              <CardTitle>Skill Discovery</CardTitle>
-              <CardDescription>
-                Find public skills from the community. Import individual skills into your
-                collections and stay in sync.
+                Your skill collections are private. Share with your team via API keys
+                or make them available to specific users.
               </CardDescription>
             </CardHeader>
           </Card>
         </div>
       </section>
 
+      {/* Workflow Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">Simple Workflow</h2>
+        <div className="max-w-2xl mx-auto">
+          <pre className="bg-muted p-6 rounded-lg text-sm overflow-x-auto">
+            <code>{`# Link your project to a collection
+skillsd link my-team/shared-skills --create
+
+# Add skills from skills.sh
+npx skills add owner/repo@skill-name -y
+
+# Check what changed
+skillsd status
+
+# Push to your collection
+skillsd push -t "Add new skill"`}</code>
+          </pre>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-24 text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to build better AI agents?</h2>
+        <h2 className="text-3xl font-bold mb-4">Ready to sync your skills?</h2>
         <p className="text-muted-foreground mb-8">
-          Join developers building the future of AI agent capabilities.
+          Create a free account and start managing your AI agent skills.
         </p>
         <Link href="/register">
           <Button size="lg">Create Free Account</Button>
@@ -133,14 +151,12 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <Code className="h-5 w-5" />
-              <span className="font-semibold">SkillsDojo.ai</span>
+              <FolderSync className="h-5 w-5" />
+              <span className="font-semibold">SkillsDojo</span>
             </div>
             <div className="flex gap-6 text-sm text-muted-foreground">
-              <Link href="/skills" className="hover:text-foreground">Skills</Link>
               <Link href="/docs" className="hover:text-foreground">Documentation</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="/about" className="hover:text-foreground">About</Link>
+              <a href="https://skills.sh" className="hover:text-foreground" target="_blank" rel="noopener noreferrer">skills.sh</a>
             </div>
           </div>
         </div>

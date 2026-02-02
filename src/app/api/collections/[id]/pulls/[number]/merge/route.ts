@@ -5,6 +5,7 @@ import { getDataSource } from "@/lib/db/data-source";
 import { SkillCollection } from "@/entities/SkillCollection";
 import { PullRequest } from "@/entities/PullRequest";
 import { Skill } from "@/entities/Skill";
+import { AccountMembership } from "@/entities/AccountMembership";
 import { withAuth, AuthenticatedRequest } from "@/lib/auth/middleware";
 import { DatabaseGitBackend } from "@/lib/git/db-backend";
 
@@ -179,10 +180,27 @@ export const POST = withAuth(async (
       );
     }
 
-    // Check permission (must be account member)
-    if (collection.accountId !== request.context.accountId) {
+    // Check permission - must be owner or admin to merge PRs
+    const membershipRepo = ds.getRepository(AccountMembership);
+    const membership = await membershipRepo.findOne({
+      where: {
+        userId: request.context.userId,
+        accountId: collection.accountId,
+        archivedAt: undefined,
+      },
+    });
+
+    if (!membership) {
       return NextResponse.json(
         { error: "Permission denied" },
+        { status: 403 }
+      );
+    }
+
+    // Only owners and admins can merge PRs
+    if (!["owner", "admin"].includes(membership.role)) {
+      return NextResponse.json(
+        { error: "Only owners and admins can merge pull requests" },
         { status: 403 }
       );
     }

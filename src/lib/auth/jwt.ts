@@ -7,8 +7,9 @@ const JWT_ISSUER = "skillsdojo.ai";
 const JWT_AUDIENCE = "skillsdojo.ai";
 
 // Token expiration times
-const ACCESS_TOKEN_EXPIRY = "15m"; // 15 minutes
-const REFRESH_TOKEN_EXPIRY = "7d"; // 7 days
+const ACCESS_TOKEN_EXPIRY = "30d"; // 30 days
+const REFRESH_TOKEN_EXPIRY = "90d"; // 90 days
+const TOKEN_REFRESH_THRESHOLD = 7 * 24 * 60 * 60; // 7 days in seconds - refresh if token is older than this
 
 export interface TokenPayload extends JWTPayload {
   userId: string;
@@ -85,6 +86,15 @@ export async function generateTokenPair(payload: {
   ]);
 
   return { accessToken, refreshToken };
+}
+
+/**
+ * Check if a token should be proactively refreshed (older than 2 hours)
+ */
+export function shouldRefreshToken(payload: TokenPayload): boolean {
+  if (!payload.iat) return false;
+  const tokenAge = Math.floor(Date.now() / 1000) - payload.iat;
+  return tokenAge > TOKEN_REFRESH_THRESHOLD;
 }
 
 /**

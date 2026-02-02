@@ -1,37 +1,39 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { join, dirname } from 'path';
+import { mkdirSync, writeFileSync, existsSync } from 'fs';
+import { join } from 'path';
 import { api } from '../lib/api.js';
-import { saveWorkspaceConfig, saveWorkspaceIndex, getApiUrl } from '../lib/config.js';
+import { requireAuth } from '../lib/auth.js';
+import { saveWorkspaceConfig, saveWorkspaceIndex } from '../lib/config.js';
 export const cloneCommand = new Command('clone')
-    .description('Clone a skill collection to local workspace')
-    .argument('<path>', 'Collection path (account/collection)')
-    .argument('[directory]', 'Target directory (default: collection name)')
-    .action(async (path, directory) => {
-    const [accountSlug, collectionSlug] = path.split('/');
+    .description('Clone a collection to work on locally')
+    .argument('<collection>', 'Collection to clone (account/collection)')
+    .option('-b, --branch <name>', 'Branch to clone', 'main')
+    .option('-d, --directory <path>', 'Directory to clone into')
+    .action(async (collectionPath, options) => {
+    requireAuth();
+    const [accountSlug, collectionSlug] = collectionPath.split('/');
     if (!accountSlug || !collectionSlug) {
         console.error(chalk.red('Invalid path. Use format: account/collection'));
         process.exit(1);
     }
-    const targetDir = directory || collectionSlug;
-    // Check if directory exists
+    const targetDir = options.directory || collectionSlug;
     if (existsSync(targetDir)) {
         console.error(chalk.red(`Directory '${targetDir}' already exists`));
         process.exit(1);
     }
-    const spinner = ora(`Cloning ${chalk.cyan(path)}...`).start();
+    const spinner = ora('Fetching collection...').start();
     // Get collection by slug
-    const collectionResponse = await api.getCollectionBySlug(accountSlug, collectionSlug);
-    if (collectionResponse.error || !collectionResponse.data) {
+    const collResponse = await api.getCollectionBySlug(accountSlug, collectionSlug);
+    if (collResponse.error || !collResponse.data) {
         spinner.fail('Collection not found');
-        console.error(chalk.red(collectionResponse.error?.message || 'Collection not found'));
+        console.error(chalk.red(collResponse.error?.message || 'Collection not found'));
         process.exit(1);
     }
-    const collection = collectionResponse.data;
-    // Get collection files
+    const collection = collResponse.data;
     spinner.text = 'Fetching files...';
+    // Get collection files
     const filesResponse = await api.getCollectionFiles(collection.id);
     if (filesResponse.error || !filesResponse.data) {
         spinner.fail('Failed to fetch files');
@@ -39,48 +41,47 @@ export const cloneCommand = new Command('clone')
         process.exit(1);
     }
     const { files, commitSha, branch } = filesResponse.data;
+    spinner.text = 'Creating workspace...';
     // Create directory structure
-    spinner.text = 'Writing files...';
     mkdirSync(targetDir, { recursive: true });
-    // Write each file
-    const fileIndex = {};
-    const now = new Date().toISOString();
+    mkdirSync(join(targetDir, '.skillsdojo'), { recursive: true });
+    // Write files
+    const indexFiles = {};
     for (const file of files) {
         const filePath = join(targetDir, file.path);
-        const fileDir = dirname(filePath);
-        // Create directory if needed
-        if (!existsSync(fileDir)) {
+        const fileDir = join(targetDir, file.path.split('/').slice(0, -1).join('/'));
+        if (fileDir !== targetDir) {
             mkdirSync(fileDir, { recursive: true });
         }
-        // Write file
-        writeFileSync(filePath, file.content, 'utf-8');
-        // Track in index
-        fileIndex[file.path] = {
+        writeFileSync(filePath, file.content);
+        indexFiles[file.path] = {
             sha: file.sha,
-            mtime: now,
+            mtime: new Date().toISOString(),
         };
     }
     // Save workspace config
-    saveWorkspaceConfig(targetDir, {
+    const config = {
         remote: {
-            url: getApiUrl(),
+            url: `https://skillsdojo.ai/${accountSlug}/${collectionSlug}`,
             account: accountSlug,
             collection: collectionSlug,
             collectionId: collection.id,
         },
-        branch,
-        lastSync: now,
-    });
-    // Save file index
-    saveWorkspaceIndex(targetDir, {
+        branch: branch || options.branch,
+        lastSync: new Date().toISOString(),
+    };
+    saveWorkspaceConfig(targetDir, config);
+    // Save index
+    const index = {
         commitSha,
-        files: fileIndex,
-    });
-    spinner.succeed(`Cloned ${chalk.green(path)} into ${chalk.cyan(targetDir)}`);
-    console.log(chalk.gray(`\n  ${files.length} files`));
-    console.log(chalk.gray(`  Branch: ${branch}`));
-    console.log(chalk.gray(`  Commit: ${commitSha.substring(0, 7)}`));
+        files: indexFiles,
+    };
+    saveWorkspaceIndex(targetDir, index);
+    spinner.succeed(`Cloned ${chalk.green(collectionPath)} to ${chalk.cyan(targetDir)}`);
     console.log();
-    console.log(`cd ${targetDir}`);
+    console.log(chalk.gray(`  Branch: ${branch || options.branch}`));
+    console.log(chalk.gray(`  Files: ${files.length}`));
+    console.log();
+    console.log(`cd ${targetDir} to start working`);
 });
 //# sourceMappingURL=clone.js.map
