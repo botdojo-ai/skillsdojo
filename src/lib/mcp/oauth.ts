@@ -7,6 +7,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { v4 as uuidv4 } from "uuid";
 import {
   MCPTokenPayload,
+  MCPRefreshTokenPayload,
   ProtectedResourceMetadata,
   OAuthServerMetadata,
   DynamicClientRegistrationRequest,
@@ -27,8 +28,9 @@ const JWT_ISSUER = process.env.MCP_OAUTH_ISSUER || "https://skillsdojo.ai";
 const JWT_AUDIENCE = "skillsdojo.ai";
 
 // Token expiration times
-const MCP_ACCESS_TOKEN_EXPIRY = 24 * 60 * 60; // 24 hours in seconds
-const AUTH_CODE_EXPIRY = 5 * 60; // 5 minutes in seconds
+const MCP_ACCESS_TOKEN_EXPIRY = 7 * 24 * 60 * 60; // 7 days in seconds
+const MCP_REFRESH_TOKEN_EXPIRY = 30 * 24 * 60 * 60; // 30 days in seconds
+const AUTH_CODE_EXPIRY = 4 * 60 * 60; // 4 hours in seconds
 
 // Token version - increment this to invalidate all existing tokens and force re-auth
 const TOKEN_VERSION = 2;
@@ -91,7 +93,7 @@ export function buildOAuthServerMetadata(
     registration_endpoint: `${endpointBase}/oauth/register`,
     jwks_uri: `${baseUrl}/.well-known/jwks.json`,
     response_types_supported: ["code"],
-    grant_types_supported: ["authorization_code"],
+    grant_types_supported: ["authorization_code", "refresh_token"],
     token_endpoint_auth_methods_supported: ["none", "client_secret_post"],
     code_challenge_methods_supported: ["S256", "plain"],
     scopes_supported: ["read", "contribute", "write", "admin"],
@@ -305,6 +307,72 @@ export async function verifyMCPAccessToken(token: string): Promise<MCPTokenPaylo
 }
 
 // ============================================================================
+// Refresh Token Generation & Verification
+// ============================================================================
+
+export async function generateRefreshToken(payload: {
+  userId: string;
+  accountId: string;
+  accountSlug: string;
+  collectionId: string;
+  collectionSlug: string;
+  scope: string;
+}): Promise<string> {
+  const now = Math.floor(Date.now() / 1000);
+
+  const tokenPayload: MCPRefreshTokenPayload = {
+    sub: payload.userId,
+    account_id: payload.accountId,
+    account_slug: payload.accountSlug,
+    collection_id: payload.collectionId,
+    collection_slug: payload.collectionSlug,
+    scope: payload.scope,
+    type: "mcp_refresh",
+    version: TOKEN_VERSION,
+    iat: now,
+    exp: now + MCP_REFRESH_TOKEN_EXPIRY,
+  };
+
+  const token = await new SignJWT(tokenPayload as unknown as Record<string, unknown>)
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setIssuer(JWT_ISSUER)
+    .setAudience(JWT_AUDIENCE)
+    .setExpirationTime(now + MCP_REFRESH_TOKEN_EXPIRY)
+    .sign(JWT_SECRET);
+
+  return `mcpr_${token}`;
+}
+
+export async function verifyRefreshToken(token: string): Promise<MCPRefreshTokenPayload | null> {
+  try {
+    // Remove mcpr_ prefix if present
+    const jwtToken = token.startsWith("mcpr_") ? token.slice(5) : token;
+
+    const { payload } = await jwtVerify(jwtToken, JWT_SECRET, {
+      issuer: JWT_ISSUER,
+      audience: JWT_AUDIENCE,
+    });
+
+    const refreshPayload = payload as unknown as MCPRefreshTokenPayload;
+
+    // Validate it's a refresh token
+    if (refreshPayload.type !== "mcp_refresh") {
+      return null;
+    }
+
+    // Check token version - reject tokens from older versions to force re-auth
+    if (!refreshPayload.version || refreshPayload.version < TOKEN_VERSION) {
+      return null;
+    }
+
+    return refreshPayload;
+  } catch {
+    return null;
+  }
+}
+
+// ============================================================================
 // Token Exchange (Authorization Code -> Access Token)
 // ============================================================================
 
@@ -329,21 +397,62 @@ export async function handleTokenExchange(
     throw new Error("redirect_uri mismatch");
   }
 
-  // Generate access token
-  const accessToken = await generateMCPAccessToken({
+  const tokenPayload = {
     userId: authCodeData.owner_uid,
     accountId: authCodeData.account_id,
     accountSlug: authCodeData.account_slug,
     collectionId: authCodeData.collection_id,
     collectionSlug: authCodeData.collection_slug,
     scope: authCodeData.scope,
-  });
+  };
+
+  // Generate access token and refresh token
+  const accessToken = await generateMCPAccessToken(tokenPayload);
+  const refreshToken = await generateRefreshToken(tokenPayload);
 
   return {
     access_token: accessToken,
     token_type: "Bearer",
     expires_in: MCP_ACCESS_TOKEN_EXPIRY,
     scope: authCodeData.scope,
+    refresh_token: refreshToken,
+  };
+}
+
+// ============================================================================
+// Refresh Token Grant (Refresh Token -> New Access Token)
+// ============================================================================
+
+export async function handleRefreshTokenGrant(
+  refreshToken: string
+): Promise<TokenResponse> {
+  // Verify the refresh token
+  const refreshPayload = await verifyRefreshToken(refreshToken);
+  if (!refreshPayload) {
+    throw new Error("Invalid or expired refresh token");
+  }
+
+  const tokenPayload = {
+    userId: refreshPayload.sub,
+    accountId: refreshPayload.account_id,
+    accountSlug: refreshPayload.account_slug,
+    collectionId: refreshPayload.collection_id,
+    collectionSlug: refreshPayload.collection_slug,
+    scope: refreshPayload.scope,
+  };
+
+  // Generate new access token
+  const accessToken = await generateMCPAccessToken(tokenPayload);
+
+  // Rotate refresh token (issue a new one)
+  const newRefreshToken = await generateRefreshToken(tokenPayload);
+
+  return {
+    access_token: accessToken,
+    token_type: "Bearer",
+    expires_in: MCP_ACCESS_TOKEN_EXPIRY,
+    scope: refreshPayload.scope,
+    refresh_token: newRefreshToken,
   };
 }
 

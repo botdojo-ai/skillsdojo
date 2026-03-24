@@ -239,6 +239,19 @@ export interface MCPTokenPayload extends JWTPayload {
   exp: number;
 }
 
+export interface MCPRefreshTokenPayload extends JWTPayload {
+  sub: string;              // User ID who authorized
+  account_id: string;       // Skills-Dojo account ID
+  account_slug: string;     // Account slug
+  collection_id: string;    // Collection ID
+  collection_slug: string;  // Collection slug
+  scope: string;            // Permissions (read, write, contribute)
+  type: "mcp_refresh";
+  version?: number;         // Token version - used to invalidate old tokens
+  iat: number;
+  exp: number;
+}
+
 export interface ProtectedResourceMetadata {
   resource: string;
   authorization_servers: string[];
@@ -287,6 +300,7 @@ export interface TokenRequest {
   redirect_uri?: string;
   client_id?: string;
   code_verifier?: string;
+  refresh_token?: string;
 }
 
 export interface TokenResponse {
@@ -294,6 +308,7 @@ export interface TokenResponse {
   token_type: "Bearer";
   expires_in: number;
   scope?: string;
+  refresh_token?: string;
 }
 
 export interface AuthCodeData {

@@ -22,7 +22,10 @@ export {
   verifyCodeChallenge,
   generateMCPAccessToken,
   verifyMCPAccessToken,
+  generateRefreshToken,
+  verifyRefreshToken,
   handleTokenExchange,
+  handleRefreshTokenGrant,
   buildAuthorizationUrl,
 } from "./oauth";
 

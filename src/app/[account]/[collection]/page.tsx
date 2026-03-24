@@ -2,7 +2,7 @@
 export const dynamic = 'force-dynamic';
 
 import Link from "next/link";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -126,6 +126,16 @@ async function getSkills(collectionId: string) {
   return skills;
 }
 
+async function getBaseUrl(): Promise<string> {
+  const headerStore = await headers();
+  const host = headerStore.get("host") || "skillsdojo.ai";
+  const protocol =
+    headerStore.get("x-forwarded-proto") ||
+    (host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https");
+
+  return `${protocol}://${host}`;
+}
+
 export default async function CollectionPage({ params }: PageProps) {
   const { account: accountSlug, collection: collectionSlug } = await params;
 
@@ -148,6 +158,7 @@ export default async function CollectionPage({ params }: PageProps) {
 
   const canEdit = await canEditCollection(collection.account.id, userId);
   const skills = await getSkills(collection.id);
+  const baseUrl = await getBaseUrl();
 
   const breadcrumbs = [
     { label: collection.account.name, href: `/${collection.account.slug}` },
@@ -170,6 +181,8 @@ export default async function CollectionPage({ params }: PageProps) {
           <McpServerUri
             accountSlug={accountSlug}
             collectionSlug={collectionSlug}
+            baseUrl={baseUrl}
+            visibility={collection.visibility}
           />
 
           {/* Action buttons for owners */}
